@@ -1,0 +1,128 @@
+{
+ "__CLASS__": "Adzuna::API::Response::JobSearchResults",
+ "count": 5,
+ "results": [
+  {
+   "id": "4501",
+   "title": "Accounts Executive (Tally)",
+   "description": "Maintain books of accounts in <strong>Tally</strong>, GST returns and billing…",
+   "redirect_url": "https://www.adzuna.in/land/ad/4501?se=x&v=y",
+   "created": "2026-10-14T12:07:57.145Z",
+   "company": {
+    "display_name": "Sai Durga Traders"
+   },
+   "location": {
+    "display_name": "Vijayawada, Krishna",
+    "area": [
+     "India",
+     "Andhra Pradesh",
+     "Krishna",
+     "Vijayawada"
+    ]
+   },
+   "salary_min": 240000,
+   "salary_max": 300000,
+   "salary_is_predicted": "0",
+   "contract_time": "full_time",
+   "category": {
+    "label": "Accounting & Finance Jobs",
+    "tag": "accounting-finance-jobs"
+   }
+  },
+  {
+   "id": "4502",
+   "title": "Python Developer",
+   "description": "Django, REST APIs and PostgreSQL. 2-4 years of experience…",
+   "redirect_url": "https://www.adzuna.in/land/ad/4502",
+   "created": "2026-10-14T07:07:57.145Z",
+   "company": {
+    "display_name": "Codekraft"
+   },
+   "location": {
+    "display_name": "Hyderabad, Telangana",
+    "area": [
+     "India",
+     "Telangana",
+     "Hyderabad"
+    ]
+   },
+   "salary_min": 600000,
+   "salary_max": 900000,
+   "salary_is_predicted": "1",
+   "contract_time": "full_time",
+   "category": {
+    "label": "IT Jobs"
+   }
+  },
+  {
+   "id": "4503",
+   "title": "Data Entry Operator - Work From Home",
+   "description": "Remote data entry, Excel knowledge required, part time…",
+   "redirect_url": "https://www.adzuna.in/land/ad/4503",
+   "created": "2026-10-14T03:07:57.145Z",
+   "company": {
+    "display_name": "Infodesk Services"
+   },
+   "location": {
+    "display_name": "India",
+    "area": [
+     "India"
+    ]
+   },
+   "contract_time": "part_time",
+   "category": {
+    "label": "Admin Jobs"
+   }
+  },
+  {
+   "id": "4504",
+   "title": "Sales Executive",
+   "description": "Field sales in Guntur district…",
+   "redirect_url": "https://www.adzuna.in/land/ad/4504",
+   "created": "2026-10-13T19:07:57.145Z",
+   "company": {
+    "display_name": "Krishna Agro"
+   },
+   "location": {
+    "display_name": "Guntur, Andhra Pradesh",
+    "area": [
+     "India",
+     "Andhra Pradesh",
+     "Guntur"
+    ]
+   },
+   "salary_min": 180000,
+   "salary_max": 240000,
+   "salary_is_predicted": "0",
+   "contract_type": "permanent",
+   "category": {
+    "label": "Sales Jobs"
+   }
+  },
+  {
+   "id": "4505",
+   "title": "Machine Learning Engineer",
+   "description": "Train ML models with PyTorch, deploy with MLOps tooling, NLP experience…",
+   "redirect_url": "https://www.adzuna.in/land/ad/4505",
+   "created": "2026-10-13T09:07:57.145Z",
+   "company": {
+    "display_name": "Visionary AI Labs"
+   },
+   "location": {
+    "display_name": "Bengaluru, Karnataka",
+    "area": [
+     "India",
+     "Karnataka",
+     "Bengaluru"
+    ]
+   },
+   "salary_min": 1800000,
+   "salary_max": 2800000,
+   "salary_is_predicted": "0",
+   "contract_time": "full_time",
+   "category": {
+    "label": "IT Jobs"
+   }
+  }
+ ]
+}

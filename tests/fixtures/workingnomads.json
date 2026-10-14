@@ -1,0 +1,32 @@
+[
+ {
+  "url": "https://www.workingnomads.com/job/go/77001/",
+  "title": "Senior Backend Engineer (Go)",
+  "description": "<p>Distributed systems in Go.</p>",
+  "company_name": "Cloudlane",
+  "category_name": "Development",
+  "tags": "go,kubernetes",
+  "location": "Anywhere",
+  "pub_date": "2026-10-14T09:07:57.145Z"
+ },
+ {
+  "url": "https://www.workingnomads.com/job/go/77002/",
+  "title": "Virtual Assistant",
+  "description": "<p>Calendar and inbox management.</p>",
+  "company_name": "Assistly",
+  "category_name": "Administration",
+  "tags": "virtual assistant",
+  "location": "Time zone: IST (+/- 2 hours)",
+  "pub_date": "2026-10-14T06:07:57.145Z"
+ },
+ {
+  "url": "https://www.workingnomads.com/job/go/77003/",
+  "title": "Marketing Manager",
+  "description": "<p>B2B SaaS marketing.</p>",
+  "company_name": "Growthwise",
+  "category_name": "Marketing",
+  "tags": "",
+  "location": "USA, Canada",
+  "pub_date": "2026-10-14T00:07:57.145Z"
+ }
+]

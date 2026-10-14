@@ -1,0 +1,55 @@
+{
+ "data": [
+  {
+   "slug": "remote-ml-ops-engineer-berlin-123",
+   "company_name": "Datafluss GmbH",
+   "title": "MLOps Engineer (Remote)",
+   "description": "<p>Kubernetes, PyTorch model serving, machine learning platform.</p>",
+   "remote": true,
+   "url": "https://www.arbeitnow.com/jobs/companies/datafluss/remote-ml-ops-engineer-berlin-123",
+   "tags": [
+    "machine learning",
+    "kubernetes"
+   ],
+   "job_types": [
+    "full time"
+   ],
+   "location": "Berlin",
+   "created_at": 1791985477
+  },
+  {
+   "slug": "office-manager-munich-124",
+   "company_name": "Bureau AG",
+   "title": "Office Manager",
+   "description": "<p>On-site role.</p>",
+   "remote": false,
+   "url": "https://www.arbeitnow.com/jobs/companies/bureau/office-manager-munich-124",
+   "tags": [],
+   "job_types": [
+    "full time"
+   ],
+   "location": "Munich",
+   "created_at": 1791981477
+  },
+  {
+   "slug": "remote-frontend-dev-125",
+   "company_name": "Webwerk",
+   "title": "Frontend Developer (React)",
+   "description": "<p>React and TypeScript, EU timezones.</p>",
+   "remote": true,
+   "url": "https://www.arbeitnow.com/jobs/companies/webwerk/remote-frontend-dev-125",
+   "tags": [
+    "react",
+    "typescript"
+   ],
+   "job_types": [
+    "contract"
+   ],
+   "location": "Germany",
+   "created_at": 1791978477
+  }
+ ],
+ "links": {
+  "next": null
+ }
+}

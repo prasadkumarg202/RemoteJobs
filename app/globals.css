@@ -1,0 +1,107 @@
+@import "tailwindcss";
+@import "@fontsource-variable/anek-telugu/standard.css";
+
+/* Mana Kosamu jobs — Kalamkari-inspired palette: indigo ink, turmeric, leaf. */
+@theme {
+  --font-sans: "Anek Telugu Variable", "Noto Sans Telugu", system-ui, sans-serif;
+
+  --color-ink: #1c2566;
+  --color-ink-soft: #4a5279;
+  --color-ink-faint: #7d84a3;
+  --color-paper: #f5f6fb;
+  --color-surface: #ffffff;
+  --color-line: #dde1ee;
+  --color-line-strong: #c4cadf;
+  --color-turmeric: #e8a317;
+  --color-turmeric-soft: #fdf2d8;
+  --color-turmeric-ink: #7a5300;
+  --color-leaf: #17795a;
+  --color-leaf-soft: #e1f2ea;
+  --color-closed: #9aa0b5;
+  --color-closed-soft: #eef0f5;
+  --color-warn: #9a4b00;
+  --color-warn-soft: #fff1df;
+
+  --radius-card: 14px;
+  --radius-chip: 999px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-ink: #e6e9ff;
+    --color-ink-soft: #b4badb;
+    --color-ink-faint: #8a90b3;
+    --color-paper: #10142e;
+    --color-surface: #181d3d;
+    --color-line: #2a3160;
+    --color-line-strong: #3a4278;
+    --color-turmeric-soft: #3a2f12;
+    --color-turmeric-ink: #f5c55a;
+    --color-leaf: #4cc89a;
+    --color-leaf-soft: #133a2e;
+    --color-closed-soft: #23284a;
+    --color-warn: #ffb766;
+    --color-warn-soft: #3b2611;
+  }
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.5;
+  font-stretch: 100%;
+}
+
+/* Type scale (≈1.25): 13 / 15 / 16 / 19 / 24 / 32 / 44 */
+.t-display {
+  font-size: clamp(2rem, 6vw, 2.75rem);
+  line-height: 1.05;
+  font-weight: 640;
+  font-stretch: 122%;
+  letter-spacing: -0.01em;
+}
+.t-h1 { font-size: 2rem; line-height: 1.12; font-weight: 620; font-stretch: 115%; }
+.t-h2 { font-size: 1.5rem; line-height: 1.2; font-weight: 600; font-stretch: 112%; }
+.t-h3 { font-size: 1.1875rem; line-height: 1.3; font-weight: 600; font-stretch: 104%; }
+.t-small { font-size: 0.9375rem; line-height: 1.45; }
+.t-tiny { font-size: 0.8125rem; line-height: 1.4; }
+/* Condensed cut for dense metadata (tags, chips). */
+.t-condensed { font-stretch: 84%; }
+
+:focus-visible {
+  outline: 3px solid var(--color-turmeric);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* The eligibility rail: the one bold device on every card. */
+.rail-open { box-shadow: inset 5px 0 0 var(--color-leaf); }
+.rail-partial { box-shadow: inset 5px 0 0 var(--color-turmeric); }
+.rail-closed { box-shadow: inset 5px 0 0 var(--color-line-strong); }
+.rail-unknown { box-shadow: inset 5px 0 0 var(--color-line); }
+
+.prose-job { font-size: 1rem; line-height: 1.65; max-width: 68ch; }
+.prose-job p { margin: 0 0 0.9em; }
+.prose-job ul, .prose-job ol { margin: 0 0 1em 1.2em; list-style: disc; }
+.prose-job ol { list-style: decimal; }
+.prose-job li { margin: 0.25em 0; }
+.prose-job h1, .prose-job h2, .prose-job h3, .prose-job h4 { font-weight: 600; font-stretch: 108%; margin: 1.2em 0 0.4em; font-size: 1.125rem; }
+.prose-job a { color: var(--color-ink); text-decoration: underline; text-underline-offset: 3px; }
+.prose-job strong { font-weight: 600; }
+
+.scroll-x { overflow-x: auto; scrollbar-width: none; }
+.scroll-x::-webkit-scrollbar { display: none; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .sheet-in { animation: sheet-in 220ms cubic-bezier(.2,.8,.2,1); }
+  @keyframes sheet-in { from { transform: translateY(24px); opacity: 0; } to { transform: none; opacity: 1; } }
+}
+
+.pb-nav { padding-bottom: calc(76px + env(safe-area-inset-bottom)); }
+@media (min-width: 768px) { .pb-nav { padding-bottom: 48px; } }

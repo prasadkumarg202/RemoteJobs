@@ -1,0 +1,606 @@
+{
+ "updatedAt": 1791639307839,
+ "offset": 0,
+ "limit": 20,
+ "totalCount": 21,
+ "jobs": [
+  {
+   "title": "Senior AI Engineer (LLM & RAG)",
+   "excerpt": "Lumora Labs is hiring: Senior AI Engineer (LLM & RAG).",
+   "companyName": "Lumora Labs",
+   "companySlug": "lumora-labs",
+   "companyLogo": null,
+   "employmentType": "Full Time",
+   "minSalary": 120000,
+   "maxSalary": 160000,
+   "salaryPeriod": "annual",
+   "currency": "USD",
+   "seniority": [
+    "Senior"
+   ],
+   "locationRestrictions": [],
+   "timezoneRestriction": [],
+   "category": [
+    "ai",
+    "llm"
+   ],
+   "parentCategories": [
+    "AI"
+   ],
+   "description": "<p>Lumora Labs is a remote-first team building software used by customers in more than 40 countries.</p><p>You will design, build and ship production features powered by large language models (LLMs) and Generative AI. Day to day you will work with the OpenAI and Anthropic Claude APIs, build retrieval-augmented generation (RAG) pipelines with LangChain and a vector database (pgvector / Pinecone), and evaluate prompts systematically.</p><ul><li>Build AI agents that call internal tools</li><li>Own prompt engineering and evaluation</li><li>Write clean Python and TypeScript</li></ul><p>Benefits: flexible hours, home-office budget, learning stipend and paid time off.</p>",
+   "pubDate": 1791635707,
+   "expiryDate": 1795523707,
+   "applicationLink": "https://jobs.lumora-labs.example/apply/senior-ai-engineer-llm-rag-lumora-labs",
+   "guid": "https://himalayas.app/companies/lumora-labs/jobs/senior-ai-engineer-llm-rag-lumora-labs"
+  },
+  {
+   "title": "LLM Prompt Engineer",
+   "excerpt": "Quillstack is hiring: LLM Prompt Engineer.",
+   "companyName": "Quillstack",
+   "companySlug": "quillstack",
+   "companyLogo": "https://cdn.example.com/logos/quillstack.png",
+   "employmentType": "Contract",
+   "minSalary": 40,
+   "maxSalary": 70,
+   "salaryPeriod": "hourly",
+   "currency": "USD",
+   "seniority": [],
+   "locationRestrictions": [],
+   "timezoneRestriction": [],
+   "category": [
+    "prompt engineering",
+    "chatgpt"
+   ],
+   "parentCategories": [
+    "AI"
+   ],
+   "description": "<p>Quillstack is a remote-first team building software used by customers in more than 40 countries.</p><p>You will design, build and ship production features powered by large language models (LLMs) and Generative AI. Day to day you will work with the OpenAI and Anthropic Claude APIs, build retrieval-augmented generation (RAG) pipelines with LangChain and a vector database (pgvector / Pinecone), and evaluate prompts systematically.</p><ul><li>Build AI agents that call internal tools</li><li>Own prompt engineering and evaluation</li><li>Write clean Python and TypeScript</li></ul><p>This is a 3 month contract with possible extension.</p><p>Benefits: flexible hours, home-office budget, learning stipend and paid time off.</p>",
+   "pubDate": 1791635707,
+   "expiryDate": 1795523707,
+   "applicationLink": "https://jobs.quillstack.example/apply/llm-prompt-engineer-quillstack",
+   "guid": "https://himalayas.app/companies/quillstack/jobs/llm-prompt-engineer-quillstack"
+  },
+  {
+   "title": "Computer Vision Engineer",
+   "excerpt": "Pixelfield Robotics is hiring: Computer Vision Engineer.",
+   "companyName": "Pixelfield Robotics",
+   "companySlug": "pixelfield-robotics",
+   "companyLogo": "https://cdn.example.com/logos/pixelfield-robotics.png",
+   "employmentType": "Full Time",
+   "minSalary": 130000,
+   "maxSalary": 170000,
+   "salaryPeriod": "annual",
+   "currency": "USD",
+   "seniority": [],
+   "locationRestrictions": [
+    "Canada",
+    "United States"
+   ],
+   "timezoneRestriction": [],
+   "category": [
+    "computer vision",
+    "opencv"
+   ],
+   "parentCategories": [
+    "AI"
+   ],
+   "description": "<p>Pixelfield Robotics is a remote-first team building software used by customers in more than 40 countries.</p><p>You will train and deploy machine learning models using Python, PyTorch and scikit-learn, own feature pipelines, and monitor models in production (MLOps).</p><p>Benefits: flexible hours, home-office budget, learning stipend and paid time off.</p>",
+   "pubDate": 1791203707,
+   "expiryDate": 1795091707,
+   "applicationLink": "https://jobs.pixelfield-robotics.example/apply/computer-vision-engineer-pixelfield-robotics",
+   "guid": "https://himalayas.app/companies/pixelfield-robotics/jobs/computer-vision-engineer-pixelfield-robotics"
+  },
+  {
+   "title": "MLOps Engineer",
+   "excerpt": "Granite Signal is hiring: MLOps Engineer.",
+   "companyName": "Granite Signal",
+   "companySlug": "granite-signal",
+   "companyLogo": "https://cdn.example.com/logos/granite-signal.png",
+   "employmentType": "Full Time",
+   "minSalary": 85000,
+   "maxSalary": 110000,
+   "salaryPeriod": "annual",
+   "currency": "GBP",
+   "seniority": [],
+   "locationRestrictions": [
+    "EMEA"
+   ],
+   "timezoneRestriction": [],
+   "category": [
+    "mlops",
+    "kubernetes"
+   ],
+   "parentCategories": [
+    "AI"
+   ],
+   "description": "<p>Granite Signal is a remote-first team building software used by customers in more than 40 countries.</p><p>You will train and deploy machine learning models using Python, PyTorch and scikit-learn, own feature pipelines, and monitor models in production (MLOps).</p><p>Benefits: flexible hours, home-office budget, learning stipend and paid time off.</p>",
+   "pubDate": 1791030907,
+   "expiryDate": 1794918907,
+   "applicationLink": "https://jobs.granite-signal.example/apply/mlops-engineer-granite-signal",
+   "guid": "https://himalayas.app/companies/granite-signal/jobs/mlops-engineer-granite-signal"
+  },
+  {
+   "title": "RAG Engineer – Contract",
+   "excerpt": "Docuverse is hiring: RAG Engineer – Contract.",
+   "companyName": "Docuverse",
+   "companySlug": "docuverse",
+   "companyLogo": "https://cdn.example.com/logos/docuverse.png",
+   "employmentType": "Contract",
+   "minSalary": 50,
+   "maxSalary": 80,
+   "salaryPeriod": "hourly",
+   "currency": "USD",
+   "seniority": [],
+   "locationRestrictions": [],
+   "timezoneRestriction": [],
+   "category": [
+    "rag",
+    "langchain"
+   ],
+   "parentCategories": [
+    "AI"
+   ],
+   "description": "<p>Docuverse is a remote-first team building software used by customers in more than 40 countries.</p><p>You will design, build and ship production features powered by large language models (LLMs) and Generative AI. Day to day you will work with the OpenAI and Anthropic Claude APIs, build retrieval-augmented generation (RAG) pipelines with LangChain and a vector database (pgvector / Pinecone), and evaluate prompts systematically.</p><ul><li>Build AI agents that call internal tools</li><li>Own prompt engineering and evaluation</li><li>Write clean Python and TypeScript</li></ul><p>Project duration: 6 weeks.</p><p>Benefits: flexible hours, home-office budget, learning stipend and paid time off.</p>",
+   "pubDate": 1791376507,
+   "expiryDate": 1795264507,
+   "applicationLink": "https://jobs.docuverse.example/apply/rag-engineer-contract-docuverse",
+   "guid": "https://himalayas.app/companies/docuverse/jobs/rag-engineer-contract-docuverse"
+  },
+  {
+   "title": "Copilot Studio Developer",
+   "excerpt": "Harbor Systems is hiring: Copilot Studio Developer.",
+   "companyName": "Harbor Systems",
+   "companySlug": "harbor-systems",
+   "companyLogo": null,
+   "employmentType": "Contract",
+   "minSalary": 400,
+   "maxSalary": 550,
+   "salaryPeriod": "daily",
+   "currency": "GBP",
+   "seniority": [],
+   "locationRestrictions": [
+    "United Kingdom"
+   ],
+   "timezoneRestriction": [],
+   "category": [
+    "copilot",
+    "azure"
+   ],
+   "parentCategories": [
+    "AI"
+   ],
+   "description": "<p>Harbor Systems is a remote-first team building software used by customers in more than 40 countries.</p><p>You will design, build and ship production features powered by large language models (LLMs) and Generative AI. Day to day you will work with the OpenAI and Anthropic Claude APIs, build retrieval-augmented generation (RAG) pipelines with LangChain and a vector database (pgvector / Pinecone), and evaluate prompts systematically.</p><ul><li>Build AI agents that call internal tools</li><li>Own prompt engineering and evaluation</li><li>Write clean Python and TypeScript</li></ul><p>Builds AI copilots with Microsoft Copilot Studio and Azure OpenAI.</p><p>Benefits: flexible hours, home-office budget, learning stipend and paid time off.</p>",
+   "pubDate": 1791290107,
+   "expiryDate": 1795178107,
+   "applicationLink": "https://jobs.harbor-systems.example/apply/copilot-studio-developer-harbor-systems",
+   "guid": "https://himalayas.app/companies/harbor-systems/jobs/copilot-studio-developer-harbor-systems"
+  },
+  {
+   "title": "Gemini API Integration Engineer",
+   "excerpt": "Cobalt Commerce is hiring: Gemini API Integration Engineer.",
+   "companyName": "Cobalt Commerce",
+   "companySlug": "cobalt-commerce",
+   "companyLogo": "https://cdn.example.com/logos/cobalt-commerce.png",
+   "employmentType": "Full Time",
+   "minSalary": 60000,
+   "maxSalary": 85000,
+   "salaryPeriod": "annual",
+   "currency": "USD",
+   "seniority": [],
+   "locationRestrictions": [
+    "APAC",
+    "EMEA"
+   ],
+   "timezoneRestriction": [],
+   "category": [
+    "gemini",
+    "vertex ai"
+   ],
+   "parentCategories": [
+    "AI"
+   ],
+   "description": "<p>Cobalt Commerce is a remote-first team building software used by customers in more than 40 countries.</p><p>You will design, build and ship production features powered by large language models (LLMs) and Generative AI. Day to day you will work with the OpenAI and Anthropic Claude APIs, build retrieval-augmented generation (RAG) pipelines with LangChain and a vector database (pgvector / Pinecone), and evaluate prompts systematically.</p><ul><li>Build AI agents that call internal tools</li><li>Own prompt engineering and evaluation</li><li>Write clean Python and TypeScript</li></ul><p>Integrate Google Gemini API and Vertex AI into our search.</p><p>Benefits: flexible hours, home-office budget, learning stipend and paid time off.</p>",
+   "pubDate": 1791203707,
+   "expiryDate": 1795091707,
+   "applicationLink": "https://jobs.cobalt-commerce.example/apply/gemini-api-integration-engineer-cobalt-commerce",
+   "guid": "https://himalayas.app/companies/cobalt-commerce/jobs/gemini-api-integration-engineer-cobalt-commerce"
+  },
+  {
+   "title": "AI Data Annotation Specialist (Part-time)",
+   "excerpt": "Labelwise is hiring: AI Data Annotation Specialist (Part-time).",
+   "companyName": "Labelwise",
+   "companySlug": "labelwise",
+   "companyLogo": "https://cdn.example.com/logos/labelwise.png",
+   "employmentType": "Part Time",
+   "minSalary": 8,
+   "maxSalary": 15,
+   "salaryPeriod": "hourly",
+   "currency": "USD",
+   "seniority": [
+    "Entry-level"
+   ],
+   "locationRestrictions": [],
+   "timezoneRestriction": [],
+   "category": [
+    "ai training data",
+    "data entry"
+   ],
+   "parentCategories": [
+    "AI"
+   ],
+   "description": "<p>Labelwise is a remote-first team building software used by customers in more than 40 countries.</p><p>You will design, build and ship production features powered by large language models (LLMs) and Generative AI. Day to day you will work with the OpenAI and Anthropic Claude APIs, build retrieval-augmented generation (RAG) pipelines with LangChain and a vector database (pgvector / Pinecone), and evaluate prompts systematically.</p><ul><li>Build AI agents that call internal tools</li><li>Own prompt engineering and evaluation</li><li>Write clean Python and TypeScript</li></ul><p>Help train large language models by rating and writing responses. Part-time, flexible hours.</p><p>Benefits: flexible hours, home-office budget, learning stipend and paid time off.</p>",
+   "pubDate": 1791549307,
+   "expiryDate": 1795437307,
+   "applicationLink": "https://jobs.labelwise.example/apply/ai-data-annotation-specialist-part-time-labelwise",
+   "guid": "https://himalayas.app/companies/labelwise/jobs/ai-data-annotation-specialist-part-time-labelwise"
+  },
+  {
+   "title": "YouTube Shorts Video Editor",
+   "excerpt": "Creator Collective is hiring: YouTube Shorts Video Editor.",
+   "companyName": "Creator Collective",
+   "companySlug": "creator-collective",
+   "companyLogo": "https://cdn.example.com/logos/creator-collective.png",
+   "employmentType": "Freelance",
+   "minSalary": 20,
+   "maxSalary": 40,
+   "salaryPeriod": "project",
+   "currency": "USD",
+   "seniority": [],
+   "locationRestrictions": [],
+   "timezoneRestriction": [],
+   "category": [
+    "video editing",
+    "youtube shorts"
+   ],
+   "parentCategories": [
+    "Engineering"
+   ],
+   "description": "<p>Creator Collective is a remote-first team building software used by customers in more than 40 countries.</p><p>Edit 30 Shorts per month. Ongoing work for the right editor.</p><p>Benefits: flexible hours, home-office budget, learning stipend and paid time off.</p>",
+   "pubDate": 1791635707,
+   "expiryDate": 1795523707,
+   "applicationLink": "https://jobs.creator-collective.example/apply/youtube-shorts-video-editor-creator-collective",
+   "guid": "https://himalayas.app/companies/creator-collective/jobs/youtube-shorts-video-editor-creator-collective"
+  },
+  {
+   "title": "Virtual Assistant (Part-time, IST hours)",
+   "excerpt": "Peakline Consulting is hiring: Virtual Assistant (Part-time, IST hours).",
+   "companyName": "Peakline Consulting",
+   "companySlug": "peakline-consulting",
+   "companyLogo": "https://cdn.example.com/logos/peakline-consulting.png",
+   "employmentType": "Part Time",
+   "minSalary": 400,
+   "maxSalary": 700,
+   "salaryPeriod": "monthly",
+   "currency": "USD",
+   "seniority": [
+    "Entry-level"
+   ],
+   "locationRestrictions": [],
+   "timezoneRestriction": [
+    5.5
+   ],
+   "category": [
+    "virtual assistant",
+    "excel"
+   ],
+   "parentCategories": [
+    "Engineering"
+   ],
+   "description": "<p>Peakline Consulting is a remote-first team building software used by customers in more than 40 countries.</p><p>Benefits: flexible hours, home-office budget, learning stipend and paid time off.</p>",
+   "pubDate": 1791549307,
+   "expiryDate": 1795437307,
+   "applicationLink": "https://jobs.peakline-consulting.example/apply/virtual-assistant-part-time-ist-hours-peakline-consulting",
+   "guid": "https://himalayas.app/companies/peakline-consulting/jobs/virtual-assistant-part-time-ist-hours-peakline-consulting"
+  },
+  {
+   "title": "Technical Writer – API docs",
+   "excerpt": "Stackmint is hiring: Technical Writer – API docs.",
+   "companyName": "Stackmint",
+   "companySlug": "stackmint",
+   "companyLogo": null,
+   "employmentType": "Contract",
+   "minSalary": 3000,
+   "maxSalary": 6000,
+   "salaryPeriod": "project",
+   "currency": "EUR",
+   "seniority": [],
+   "locationRestrictions": [
+    "India"
+   ],
+   "timezoneRestriction": [],
+   "category": [
+    "technical writing"
+   ],
+   "parentCategories": [
+    "Engineering"
+   ],
+   "description": "<p>Stackmint is a remote-first team building software used by customers in more than 40 countries.</p><p>Project-based: rewrite our API reference over 4 weeks.</p><p>Benefits: flexible hours, home-office budget, learning stipend and paid time off.</p>",
+   "pubDate": 1791203707,
+   "expiryDate": 1795091707,
+   "applicationLink": "https://jobs.stackmint.example/apply/technical-writer-api-docs-stackmint",
+   "guid": "https://himalayas.app/companies/stackmint/jobs/technical-writer-api-docs-stackmint"
+  },
+  {
+   "title": "SQL DBA – Contract (Remote)",
+   "excerpt": "Datapulse is hiring: SQL DBA – Contract (Remote).",
+   "companyName": "Datapulse",
+   "companySlug": "datapulse",
+   "companyLogo": "https://cdn.example.com/logos/datapulse.png",
+   "employmentType": "Contract",
+   "minSalary": 70,
+   "maxSalary": 95,
+   "salaryPeriod": "hourly",
+   "currency": "USD",
+   "seniority": [],
+   "locationRestrictions": [
+    "United States"
+   ],
+   "timezoneRestriction": [],
+   "category": [
+    "sql server",
+    "dba"
+   ],
+   "parentCategories": [
+    "Engineering"
+   ],
+   "description": "<p>Datapulse is a remote-first team building software used by customers in more than 40 countries.</p><p>6 month contract. Must be based in the US.</p><p>Benefits: flexible hours, home-office budget, learning stipend and paid time off.</p>",
+   "pubDate": 1791376507,
+   "expiryDate": 1795264507,
+   "applicationLink": "https://jobs.datapulse.example/apply/sql-dba-contract-remote-datapulse",
+   "guid": "https://himalayas.app/companies/datapulse/jobs/sql-dba-contract-remote-datapulse"
+  },
+  {
+   "title": "Customer Support Agent – Chat (Part-time)",
+   "excerpt": "Trailmate is hiring: Customer Support Agent – Chat (Part-time).",
+   "companyName": "Trailmate",
+   "companySlug": "trailmate",
+   "companyLogo": "https://cdn.example.com/logos/trailmate.png",
+   "employmentType": "Part Time",
+   "minSalary": 5,
+   "maxSalary": 8,
+   "salaryPeriod": "hourly",
+   "currency": "USD",
+   "seniority": [
+    "Entry-level"
+   ],
+   "locationRestrictions": [
+    "APAC"
+   ],
+   "timezoneRestriction": [],
+   "category": [
+    "customer support"
+   ],
+   "parentCategories": [
+    "Engineering"
+   ],
+   "description": "<p>Trailmate is a remote-first team building software used by customers in more than 40 countries.</p><p>Benefits: flexible hours, home-office budget, learning stipend and paid time off.</p>",
+   "pubDate": 1791462907,
+   "expiryDate": 1795350907,
+   "applicationLink": "https://jobs.trailmate.example/apply/customer-support-agent-chat-part-time-trailmate",
+   "guid": "https://himalayas.app/companies/trailmate/jobs/customer-support-agent-chat-part-time-trailmate"
+  },
+  {
+   "title": "Market Research Analyst (Freelance)",
+   "excerpt": "Insightloop is hiring: Market Research Analyst (Freelance).",
+   "companyName": "Insightloop",
+   "companySlug": "insightloop",
+   "companyLogo": "https://cdn.example.com/logos/insightloop.png",
+   "employmentType": "Freelance",
+   "minSalary": 20,
+   "maxSalary": 30,
+   "salaryPeriod": "hourly",
+   "currency": "USD",
+   "seniority": [],
+   "locationRestrictions": [],
+   "timezoneRestriction": [],
+   "category": [
+    "research"
+   ],
+   "parentCategories": [
+    "Engineering"
+   ],
+   "description": "<p>Insightloop is a remote-first team building software used by customers in more than 40 countries.</p><p>Benefits: flexible hours, home-office budget, learning stipend and paid time off.</p>",
+   "pubDate": 1791376507,
+   "expiryDate": 1795264507,
+   "applicationLink": "https://jobs.insightloop.example/apply/market-research-analyst-freelance-insightloop",
+   "guid": "https://himalayas.app/companies/insightloop/jobs/market-research-analyst-freelance-insightloop"
+  },
+  {
+   "title": "Frontend Engineer (React/Next.js)",
+   "excerpt": "Cloudnest is hiring: Frontend Engineer (React/Next.js).",
+   "companyName": "Cloudnest",
+   "companySlug": "cloudnest",
+   "companyLogo": "https://cdn.example.com/logos/cloudnest.png",
+   "employmentType": "Full Time",
+   "minSalary": 60000,
+   "maxSalary": 80000,
+   "salaryPeriod": "annual",
+   "currency": "EUR",
+   "seniority": [],
+   "locationRestrictions": [
+    "Europe"
+   ],
+   "timezoneRestriction": [],
+   "category": [
+    "react",
+    "next.js"
+   ],
+   "parentCategories": [
+    "Engineering"
+   ],
+   "description": "<p>Cloudnest is a remote-first team building software used by customers in more than 40 countries.</p><p>You will collaborate with product and design, write well-tested code, review pull requests and help us keep a calm, sustainable pace.</p><ul><li>Strong communication in English</li><li>Ownership mindset</li></ul><p>Benefits: flexible hours, home-office budget, learning stipend and paid time off.</p>",
+   "pubDate": 1791549307,
+   "expiryDate": 1795437307,
+   "applicationLink": "https://jobs.cloudnest.example/apply/frontend-engineer-react-next-js-cloudnest",
+   "guid": "https://himalayas.app/companies/cloudnest/jobs/frontend-engineer-react-next-js-cloudnest"
+  },
+  {
+   "title": ".NET Developer (C#)",
+   "excerpt": "Ledgerline is hiring: .NET Developer (C#).",
+   "companyName": "Ledgerline",
+   "companySlug": "ledgerline",
+   "companyLogo": null,
+   "employmentType": "Full Time",
+   "minSalary": 110000,
+   "maxSalary": 135000,
+   "salaryPeriod": "annual",
+   "currency": "USD",
+   "seniority": [],
+   "locationRestrictions": [
+    "United States"
+   ],
+   "timezoneRestriction": [],
+   "category": [
+    ".net",
+    "c#"
+   ],
+   "parentCategories": [
+    "Engineering"
+   ],
+   "description": "<p>Ledgerline is a remote-first team building software used by customers in more than 40 countries.</p><p>You will collaborate with product and design, write well-tested code, review pull requests and help us keep a calm, sustainable pace.</p><ul><li>Strong communication in English</li><li>Ownership mindset</li></ul><p>Benefits: flexible hours, home-office budget, learning stipend and paid time off.</p>",
+   "pubDate": 1791290107,
+   "expiryDate": 1795178107,
+   "applicationLink": "https://jobs.ledgerline.example/apply/net-developer-c-ledgerline",
+   "guid": "https://himalayas.app/companies/ledgerline/jobs/net-developer-c-ledgerline"
+  },
+  {
+   "title": "Site Reliability Engineer",
+   "excerpt": "Parcelpoint is hiring: Site Reliability Engineer.",
+   "companyName": "Parcelpoint",
+   "companySlug": "parcelpoint",
+   "companyLogo": "https://cdn.example.com/logos/parcelpoint.png",
+   "employmentType": "Full Time",
+   "minSalary": 90000,
+   "maxSalary": 120000,
+   "salaryPeriod": "annual",
+   "currency": "USD",
+   "seniority": [],
+   "locationRestrictions": [
+    "EMEA"
+   ],
+   "timezoneRestriction": [],
+   "category": [
+    "sre",
+    "gcp"
+   ],
+   "parentCategories": [
+    "Engineering"
+   ],
+   "description": "<p>Parcelpoint is a remote-first team building software used by customers in more than 40 countries.</p><p>You will collaborate with product and design, write well-tested code, review pull requests and help us keep a calm, sustainable pace.</p><ul><li>Strong communication in English</li><li>Ownership mindset</li></ul><p>Benefits: flexible hours, home-office budget, learning stipend and paid time off.</p>",
+   "pubDate": 1791117307,
+   "expiryDate": 1795005307,
+   "applicationLink": "https://jobs.parcelpoint.example/apply/site-reliability-engineer-parcelpoint",
+   "guid": "https://himalayas.app/companies/parcelpoint/jobs/site-reliability-engineer-parcelpoint"
+  },
+  {
+   "title": "QA Automation Engineer",
+   "excerpt": "Testwell is hiring: QA Automation Engineer.",
+   "companyName": "Testwell",
+   "companySlug": "testwell",
+   "companyLogo": "https://cdn.example.com/logos/testwell.png",
+   "employmentType": "Full Time",
+   "minSalary": 45000,
+   "maxSalary": 65000,
+   "salaryPeriod": "annual",
+   "currency": "USD",
+   "seniority": [],
+   "locationRestrictions": [],
+   "timezoneRestriction": [],
+   "category": [
+    "test automation",
+    "playwright"
+   ],
+   "parentCategories": [
+    "Engineering"
+   ],
+   "description": "<p>Testwell is a remote-first team building software used by customers in more than 40 countries.</p><p>You will collaborate with product and design, write well-tested code, review pull requests and help us keep a calm, sustainable pace.</p><ul><li>Strong communication in English</li><li>Ownership mindset</li></ul><p>Own our test automation suite.</p><p>Benefits: flexible hours, home-office budget, learning stipend and paid time off.</p>",
+   "pubDate": 1791462907,
+   "expiryDate": 1795350907,
+   "applicationLink": "https://jobs.testwell.example/apply/qa-automation-engineer-testwell",
+   "guid": "https://himalayas.app/companies/testwell/jobs/qa-automation-engineer-testwell"
+  },
+  {
+   "title": "Python Developer (Django)",
+   "excerpt": "Agrinet is hiring: Python Developer (Django).",
+   "companyName": "Agrinet",
+   "companySlug": "agrinet",
+   "companyLogo": "https://cdn.example.com/logos/agrinet.png",
+   "employmentType": "Full Time",
+   "minSalary": 30000,
+   "maxSalary": 45000,
+   "salaryPeriod": "annual",
+   "currency": "USD",
+   "seniority": [],
+   "locationRestrictions": [
+    "Asia"
+   ],
+   "timezoneRestriction": [],
+   "category": [
+    "python",
+    "django"
+   ],
+   "parentCategories": [
+    "Engineering"
+   ],
+   "description": "<p>Agrinet is a remote-first team building software used by customers in more than 40 countries.</p><p>You will collaborate with product and design, write well-tested code, review pull requests and help us keep a calm, sustainable pace.</p><ul><li>Strong communication in English</li><li>Ownership mindset</li></ul><p>Benefits: flexible hours, home-office budget, learning stipend and paid time off.</p>",
+   "pubDate": 1791203707,
+   "expiryDate": 1795091707,
+   "applicationLink": "https://jobs.agrinet.example/apply/python-developer-django-agrinet",
+   "guid": "https://himalayas.app/companies/agrinet/jobs/python-developer-django-agrinet"
+  },
+  {
+   "title": "Head of Growth Marketing",
+   "excerpt": "Fitloop is hiring: Head of Growth Marketing.",
+   "companyName": "Fitloop",
+   "companySlug": "fitloop",
+   "companyLogo": "https://cdn.example.com/logos/fitloop.png",
+   "employmentType": "Full Time",
+   "minSalary": null,
+   "maxSalary": null,
+   "currency": "USD",
+   "seniority": [],
+   "locationRestrictions": [],
+   "timezoneRestriction": [],
+   "category": [
+    "marketing",
+    "seo"
+   ],
+   "parentCategories": [
+    "Engineering"
+   ],
+   "description": "<p>Fitloop is a remote-first team building software used by customers in more than 40 countries.</p><p>You will collaborate with product and design, write well-tested code, review pull requests and help us keep a calm, sustainable pace.</p><ul><li>Strong communication in English</li><li>Ownership mindset</li></ul><p>Benefits: flexible hours, home-office budget, learning stipend and paid time off.</p>",
+   "pubDate": 1790598907,
+   "expiryDate": 1794486907,
+   "applicationLink": "https://jobs.fitloop.example/apply/head-of-growth-marketing-fitloop",
+   "guid": "https://himalayas.app/companies/fitloop/jobs/head-of-growth-marketing-fitloop"
+  },
+  {
+   "title": "Senior PHP Developer (Laravel)",
+   "excerpt": "Bookly is hiring: Senior PHP Developer (Laravel).",
+   "companyName": "Bookly",
+   "companySlug": "bookly",
+   "companyLogo": null,
+   "employmentType": "Full Time",
+   "minSalary": 50000,
+   "maxSalary": 70000,
+   "salaryPeriod": "annual",
+   "currency": "USD",
+   "seniority": [],
+   "locationRestrictions": [],
+   "timezoneRestriction": [],
+   "category": [
+    "php",
+    "laravel"
+   ],
+   "parentCategories": [
+    "Engineering"
+   ],
+   "description": "<p>Bookly is a remote-first team building software used by customers in more than 40 countries.</p><p>You will collaborate with product and design, write well-tested code, review pull requests and help us keep a calm, sustainable pace.</p><ul><li>Strong communication in English</li><li>Ownership mindset</li></ul><p>Benefits: flexible hours, home-office budget, learning stipend and paid time off.</p>",
+   "pubDate": 1790685307,
+   "expiryDate": 1794573307,
+   "applicationLink": "https://jobs.bookly.example/apply/senior-php-developer-laravel-bookly",
+   "guid": "https://himalayas.app/companies/bookly/jobs/senior-php-developer-laravel-bookly"
+  }
+ ],
+ "nextCursor": null
+}

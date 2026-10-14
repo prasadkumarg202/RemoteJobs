@@ -1,0 +1,467 @@
+[
+ {
+  "legal": "API Terms of Service: Please link back to the URL on Remote OK and mention Remote OK as a source, so we get traffic back from your site."
+ },
+ {
+  "slug": "remote-machine-learning-engineer-tidewave-analytics-900002",
+  "id": "900002",
+  "epoch": 1791462907,
+  "date": "2026-10-08T12:35:07.839Z",
+  "company": "Tidewave Analytics",
+  "company_logo": "https://remoteok.com/assets/img/jobs/tidewave-analytics.png",
+  "position": "Machine Learning Engineer",
+  "tags": [
+   "machine learning",
+   "pytorch"
+  ],
+  "description": "<p>Tidewave Analytics is a remote-first team building software used by customers in more than 40 countries.</p><p>You will train and deploy machine learning models using Python, PyTorch and scikit-learn, own feature pipelines, and monitor models in production (MLOps).</p><p>Benefits: flexible hours, home-office budget, learning stipend and paid time off.</p>",
+  "location": "APAC",
+  "salary_min": 45000,
+  "salary_max": 70000,
+  "apply_url": "https://remoteok.com/remote-jobs/900002/apply",
+  "url": "https://remoteok.com/remote-jobs/remote-machine-learning-engineer-tidewave-analytics-900002"
+ },
+ {
+  "slug": "remote-applied-ai-scientist-nlp-verbatim-ai-900005",
+  "id": "900005",
+  "epoch": 1791290107,
+  "date": "2026-10-06T12:35:07.839Z",
+  "company": "Verbatim AI",
+  "company_logo": "https://remoteok.com/assets/img/jobs/verbatim-ai.png",
+  "position": "Applied AI Scientist – NLP",
+  "tags": [
+   "nlp",
+   "hugging face"
+  ],
+  "description": "<p>Verbatim AI is a remote-first team building software used by customers in more than 40 countries.</p><p>You will design, build and ship production features powered by large language models (LLMs) and Generative AI. Day to day you will work with the OpenAI and Anthropic Claude APIs, build retrieval-augmented generation (RAG) pipelines with LangChain and a vector database (pgvector / Pinecone), and evaluate prompts systematically.</p><ul><li>Build AI agents that call internal tools</li><li>Own prompt engineering and evaluation</li><li>Write clean Python and TypeScript</li></ul><p>Benefits: flexible hours, home-office budget, learning stipend and paid time off.</p>",
+  "location": "Europe",
+  "salary_min": 0,
+  "salary_max": 0,
+  "apply_url": "https://remoteok.com/remote-jobs/900005/apply",
+  "url": "https://remoteok.com/remote-jobs/remote-applied-ai-scientist-nlp-verbatim-ai-900005"
+ },
+ {
+  "slug": "remote-ai-automation-specialist-n8n-chatgpt-flowcraft-studio-900008",
+  "id": "900008",
+  "epoch": 1791635707,
+  "date": "2026-10-10T12:35:07.839Z",
+  "company": "Flowcraft Studio",
+  "company_logo": "https://remoteok.com/assets/img/jobs/flowcraft-studio.png",
+  "position": "AI Automation Specialist (n8n + ChatGPT)",
+  "tags": [
+   "n8n",
+   "ai automation",
+   "chatgpt",
+   "freelance"
+  ],
+  "description": "<p>Flowcraft Studio is a remote-first team building software used by customers in more than 40 countries.</p><p>We automate business workflows with n8n, Zapier and Make.com, connecting CRMs, WhatsApp Business and Google Sheets. Experience integrating ChatGPT into automations is a plus.</p><p>We automate business workflows with n8n, Zapier and Make.com, connecting CRMs, WhatsApp Business and Google Sheets. Experience integrating ChatGPT into automations is a plus.</p><p>Benefits: flexible hours, home-office budget, learning stipend and paid time off.</p>",
+  "location": "Worldwide",
+  "salary_min": 0,
+  "salary_max": 0,
+  "apply_url": "https://remoteok.com/remote-jobs/900008/apply",
+  "url": "https://remoteok.com/remote-jobs/remote-ai-automation-specialist-n8n-chatgpt-flowcraft-studio-900008"
+ },
+ {
+  "slug": "remote-junior-ml-engineer-sunpath-energy-900011",
+  "id": "900011",
+  "epoch": 1791462907,
+  "date": "2026-10-08T12:35:07.839Z",
+  "company": "Sunpath Energy",
+  "company_logo": "https://remoteok.com/assets/img/jobs/sunpath-energy.png",
+  "position": "Junior ML Engineer",
+  "tags": [
+   "ml",
+   "python"
+  ],
+  "description": "<p>Sunpath Energy is a remote-first team building software used by customers in more than 40 countries.</p><p>You will train and deploy machine learning models using Python, PyTorch and scikit-learn, own feature pipelines, and monitor models in production (MLOps).</p><p>Benefits: flexible hours, home-office budget, learning stipend and paid time off.</p>",
+  "location": "India, Singapore",
+  "salary_min": 0,
+  "salary_max": 0,
+  "apply_url": "https://remoteok.com/remote-jobs/900011/apply",
+  "url": "https://remoteok.com/remote-jobs/remote-junior-ml-engineer-sunpath-energy-900011"
+ },
+ {
+  "slug": "remote-ai-image-generation-artist-midjourney-pinecrest-books-900014",
+  "id": "900014",
+  "epoch": 1791462907,
+  "date": "2026-10-08T12:35:07.839Z",
+  "company": "Pinecrest Books",
+  "company_logo": "https://remoteok.com/assets/img/jobs/pinecrest-books.png",
+  "position": "AI Image Generation Artist (Midjourney)",
+  "tags": [
+   "midjourney",
+   "ai art",
+   "freelance"
+  ],
+  "description": "<p>Pinecrest Books is a remote-first team building software used by customers in more than 40 countries.</p><p>Create 20 book cover concepts with Midjourney and Stable Diffusion. Timeline 2 weeks.</p><p>Benefits: flexible hours, home-office budget, learning stipend and paid time off.</p>",
+  "location": "Worldwide",
+  "salary_min": 0,
+  "salary_max": 0,
+  "apply_url": "https://remoteok.com/remote-jobs/900014/apply",
+  "url": "https://remoteok.com/remote-jobs/remote-ai-image-generation-artist-midjourney-pinecrest-books-900014"
+ },
+ {
+  "slug": "remote-ai-chatbot-developer-whatsapp-bazaarline-900017",
+  "id": "900017",
+  "epoch": 1791635707,
+  "date": "2026-10-10T12:35:07.839Z",
+  "company": "Bazaarline",
+  "company_logo": "https://remoteok.com/assets/img/jobs/bazaarline.png",
+  "position": "AI Chatbot Developer – WhatsApp",
+  "tags": [
+   "chatgpt",
+   "whatsapp",
+   "n8n",
+   "freelance"
+  ],
+  "description": "<p>Bazaarline is a remote-first team building software used by customers in more than 40 countries.</p><p>We automate business workflows with n8n, Zapier and Make.com, connecting CRMs, WhatsApp Business and Google Sheets. Experience integrating ChatGPT into automations is a plus.</p><p>Build a WhatsApp AI assistant with n8n and the OpenAI API. Expected timeline: 3 weeks.</p><p>Benefits: flexible hours, home-office budget, learning stipend and paid time off.</p>",
+  "location": "India",
+  "salary_min": 0,
+  "salary_max": 0,
+  "apply_url": "https://remoteok.com/remote-jobs/900017/apply",
+  "url": "https://remoteok.com/remote-jobs/remote-ai-chatbot-developer-whatsapp-bazaarline-900017"
+ },
+ {
+  "slug": "remote-conversational-ai-designer-helio-care-900020",
+  "id": "900020",
+  "epoch": 1791117307,
+  "date": "2026-10-04T12:35:07.839Z",
+  "company": "Helio Care",
+  "company_logo": "https://remoteok.com/assets/img/jobs/helio-care.png",
+  "position": "Conversational AI Designer",
+  "tags": [
+   "nlp",
+   "chatgpt"
+  ],
+  "description": "<p>Helio Care is a remote-first team building software used by customers in more than 40 countries.</p><p>You will design, build and ship production features powered by large language models (LLMs) and Generative AI. Day to day you will work with the OpenAI and Anthropic Claude APIs, build retrieval-augmented generation (RAG) pipelines with LangChain and a vector database (pgvector / Pinecone), and evaluate prompts systematically.</p><ul><li>Build AI agents that call internal tools</li><li>Own prompt engineering and evaluation</li><li>Write clean Python and TypeScript</li></ul><p>Benefits: flexible hours, home-office budget, learning stipend and paid time off.</p>",
+  "location": "LATAM",
+  "salary_min": 40000,
+  "salary_max": 60000,
+  "apply_url": "https://remoteok.com/remote-jobs/900020/apply",
+  "url": "https://remoteok.com/remote-jobs/remote-conversational-ai-designer-helio-care-900020"
+ },
+ {
+  "slug": "remote-wordpress-landing-page-one-time-project-cafe-aroma-900023",
+  "id": "900023",
+  "epoch": 1791549307,
+  "date": "2026-10-09T12:35:07.839Z",
+  "company": "Cafe Aroma",
+  "company_logo": "https://remoteok.com/assets/img/jobs/cafe-aroma.png",
+  "position": "WordPress Landing Page (one-time project)",
+  "tags": [
+   "wordpress",
+   "web development",
+   "freelance"
+  ],
+  "description": "<p>Cafe Aroma is a remote-first team building software used by customers in more than 40 countries.</p><p>One-time project to build a 5-section landing page.</p><p>Benefits: flexible hours, home-office budget, learning stipend and paid time off.</p>",
+  "location": "India",
+  "salary_min": 0,
+  "salary_max": 0,
+  "apply_url": "https://remoteok.com/remote-jobs/900023/apply",
+  "url": "https://remoteok.com/remote-jobs/remote-wordpress-landing-page-one-time-project-cafe-aroma-900023"
+ },
+ {
+  "slug": "remote-graphic-designer-canva-social-posts-spice-route-foods-900026",
+  "id": "900026",
+  "epoch": 1791376507,
+  "date": "2026-10-07T12:35:07.839Z",
+  "company": "Spice Route Foods",
+  "company_logo": "https://remoteok.com/assets/img/jobs/spice-route-foods.png",
+  "position": "Graphic Designer – Canva Social Posts",
+  "tags": [
+   "canva",
+   "graphic design",
+   "freelance"
+  ],
+  "description": "<p>Spice Route Foods is a remote-first team building software used by customers in more than 40 countries.</p><p>Benefits: flexible hours, home-office budget, learning stipend and paid time off.</p>",
+  "location": "Worldwide",
+  "salary_min": 0,
+  "salary_max": 0,
+  "apply_url": "https://remoteok.com/remote-jobs/900026/apply",
+  "url": "https://remoteok.com/remote-jobs/remote-graphic-designer-canva-social-posts-spice-route-foods-900026"
+ },
+ {
+  "slug": "remote-seo-content-writer-freelance-wordsmith-hub-900029",
+  "id": "900029",
+  "epoch": 1791290107,
+  "date": "2026-10-06T12:35:07.839Z",
+  "company": "Wordsmith Hub",
+  "company_logo": "https://remoteok.com/assets/img/jobs/wordsmith-hub.png",
+  "position": "SEO Content Writer (Freelance)",
+  "tags": [
+   "seo",
+   "content writing",
+   "freelance"
+  ],
+  "description": "<p>Wordsmith Hub is a remote-first team building software used by customers in more than 40 countries.</p><p>Benefits: flexible hours, home-office budget, learning stipend and paid time off.</p>",
+  "location": "Worldwide",
+  "salary_min": 0,
+  "salary_max": 0,
+  "apply_url": "https://remoteok.com/remote-jobs/900029/apply",
+  "url": "https://remoteok.com/remote-jobs/remote-seo-content-writer-freelance-wordsmith-hub-900029"
+ },
+ {
+  "slug": "remote-power-bi-dashboard-developer-gig-retail-metrics-900032",
+  "id": "900032",
+  "epoch": 1791549307,
+  "date": "2026-10-09T12:35:07.839Z",
+  "company": "Retail Metrics",
+  "company_logo": "https://remoteok.com/assets/img/jobs/retail-metrics.png",
+  "position": "Power BI Dashboard Developer (gig)",
+  "tags": [
+   "power bi",
+   "sql",
+   "freelance"
+  ],
+  "description": "<p>Retail Metrics is a remote-first team building software used by customers in more than 40 countries.</p><p>Gig: one dashboard, delivery within 2 weeks.</p><p>Benefits: flexible hours, home-office budget, learning stipend and paid time off.</p>",
+  "location": "Worldwide",
+  "salary_min": 0,
+  "salary_max": 0,
+  "apply_url": "https://remoteok.com/remote-jobs/900032/apply",
+  "url": "https://remoteok.com/remote-jobs/remote-power-bi-dashboard-developer-gig-retail-metrics-900032"
+ },
+ {
+  "slug": "remote-shopify-store-setup-freelancer-handloom-house-900035",
+  "id": "900035",
+  "epoch": 1791117307,
+  "date": "2026-10-04T12:35:07.839Z",
+  "company": "Handloom House",
+  "company_logo": "https://remoteok.com/assets/img/jobs/handloom-house.png",
+  "position": "Shopify Store Setup (Freelancer)",
+  "tags": [
+   "shopify",
+   "web development",
+   "freelance"
+  ],
+  "description": "<p>Handloom House is a remote-first team building software used by customers in more than 40 countries.</p><p>Benefits: flexible hours, home-office budget, learning stipend and paid time off.</p>",
+  "location": "India",
+  "salary_min": 0,
+  "salary_max": 0,
+  "apply_url": "https://remoteok.com/remote-jobs/900035/apply",
+  "url": "https://remoteok.com/remote-jobs/remote-shopify-store-setup-freelancer-handloom-house-900035"
+ },
+ {
+  "slug": "remote-logo-brand-identity-designer-greenleaf-farms-900038",
+  "id": "900038",
+  "epoch": 1791030907,
+  "date": "2026-10-03T12:35:07.839Z",
+  "company": "Greenleaf Farms",
+  "company_logo": "https://remoteok.com/assets/img/jobs/greenleaf-farms.png",
+  "position": "Logo & Brand Identity Designer",
+  "tags": [
+   "logo design",
+   "graphic design",
+   "freelance"
+  ],
+  "description": "<p>Greenleaf Farms is a remote-first team building software used by customers in more than 40 countries.</p><p>Benefits: flexible hours, home-office budget, learning stipend and paid time off.</p>",
+  "location": "Worldwide",
+  "salary_min": 0,
+  "salary_max": 0,
+  "apply_url": "https://remoteok.com/remote-jobs/900038/apply",
+  "url": "https://remoteok.com/remote-jobs/remote-logo-brand-identity-designer-greenleaf-farms-900038"
+ },
+ {
+  "slug": "remote-senior-backend-engineer-node-js-parcelpoint-900041",
+  "id": "900041",
+  "epoch": 1791635707,
+  "date": "2026-10-10T12:35:07.839Z",
+  "company": "Parcelpoint",
+  "company_logo": "https://remoteok.com/assets/img/jobs/parcelpoint.png",
+  "position": "Senior Backend Engineer (Node.js)",
+  "tags": [
+   "node.js",
+   "postgres"
+  ],
+  "description": "<p>Parcelpoint is a remote-first team building software used by customers in more than 40 countries.</p><p>You will collaborate with product and design, write well-tested code, review pull requests and help us keep a calm, sustainable pace.</p><ul><li>Strong communication in English</li><li>Ownership mindset</li></ul><p>Benefits: flexible hours, home-office budget, learning stipend and paid time off.</p>",
+  "location": "Worldwide",
+  "salary_min": 100000,
+  "salary_max": 140000,
+  "apply_url": "https://remoteok.com/remote-jobs/900041/apply",
+  "url": "https://remoteok.com/remote-jobs/remote-senior-backend-engineer-node-js-parcelpoint-900041"
+ },
+ {
+  "slug": "remote-azure-cloud-engineer-bluepeak-it-900044",
+  "id": "900044",
+  "epoch": 1791376507,
+  "date": "2026-10-07T12:35:07.839Z",
+  "company": "Bluepeak IT",
+  "company_logo": "https://remoteok.com/assets/img/jobs/bluepeak-it.png",
+  "position": "Azure Cloud Engineer",
+  "tags": [
+   "azure",
+   "terraform"
+  ],
+  "description": "<p>Bluepeak IT is a remote-first team building software used by customers in more than 40 countries.</p><p>You will collaborate with product and design, write well-tested code, review pull requests and help us keep a calm, sustainable pace.</p><ul><li>Strong communication in English</li><li>Ownership mindset</li></ul><p>Benefits: flexible hours, home-office budget, learning stipend and paid time off.</p>",
+  "location": "APAC",
+  "salary_min": 50000,
+  "salary_max": 75000,
+  "apply_url": "https://remoteok.com/remote-jobs/900044/apply",
+  "url": "https://remoteok.com/remote-jobs/remote-azure-cloud-engineer-bluepeak-it-900044"
+ },
+ {
+  "slug": "remote-full-stack-developer-typescript-mintleaf-900047",
+  "id": "900047",
+  "epoch": 1791462907,
+  "date": "2026-10-08T12:35:07.839Z",
+  "company": "Mintleaf",
+  "company_logo": "https://remoteok.com/assets/img/jobs/mintleaf.png",
+  "position": "Full Stack Developer (TypeScript)",
+  "tags": [
+   "typescript",
+   "react",
+   "node.js"
+  ],
+  "description": "<p>Mintleaf is a remote-first team building software used by customers in more than 40 countries.</p><p>You will collaborate with product and design, write well-tested code, review pull requests and help us keep a calm, sustainable pace.</p><ul><li>Strong communication in English</li><li>Ownership mindset</li></ul><p>Benefits: flexible hours, home-office budget, learning stipend and paid time off.</p>",
+  "location": "Worldwide",
+  "salary_min": 70000,
+  "salary_max": 95000,
+  "apply_url": "https://remoteok.com/remote-jobs/900047/apply",
+  "url": "https://remoteok.com/remote-jobs/remote-full-stack-developer-typescript-mintleaf-900047"
+ },
+ {
+  "slug": "remote-data-engineer-snowflake-airflow-tidewave-analytics-900050",
+  "id": "900050",
+  "epoch": 1790944507,
+  "date": "2026-10-02T12:35:07.839Z",
+  "company": "Tidewave Analytics",
+  "company_logo": "https://remoteok.com/assets/img/jobs/tidewave-analytics.png",
+  "position": "Data Engineer (Snowflake, Airflow)",
+  "tags": [
+   "data engineering",
+   "airflow",
+   "snowflake"
+  ],
+  "description": "<p>Tidewave Analytics is a remote-first team building software used by customers in more than 40 countries.</p><p>You will collaborate with product and design, write well-tested code, review pull requests and help us keep a calm, sustainable pace.</p><ul><li>Strong communication in English</li><li>Ownership mindset</li></ul><p>Benefits: flexible hours, home-office budget, learning stipend and paid time off.</p>",
+  "location": "LATAM",
+  "salary_min": 55000,
+  "salary_max": 80000,
+  "apply_url": "https://remoteok.com/remote-jobs/900050/apply",
+  "url": "https://remoteok.com/remote-jobs/remote-data-engineer-snowflake-airflow-tidewave-analytics-900050"
+ },
+ {
+  "slug": "remote-technical-support-engineer-ist-shift-helpdeskly-900053",
+  "id": "900053",
+  "epoch": 1791549307,
+  "date": "2026-10-09T12:35:07.839Z",
+  "company": "Helpdeskly",
+  "company_logo": "https://remoteok.com/assets/img/jobs/helpdeskly.png",
+  "position": "Technical Support Engineer (IST shift)",
+  "tags": [
+   "customer support",
+   "sql"
+  ],
+  "description": "<p>Helpdeskly is a remote-first team building software used by customers in more than 40 countries.</p><p>You will collaborate with product and design, write well-tested code, review pull requests and help us keep a calm, sustainable pace.</p><ul><li>Strong communication in English</li><li>Ownership mindset</li></ul><p>Benefits: flexible hours, home-office budget, learning stipend and paid time off.</p>",
+  "location": "India",
+  "salary_min": 0,
+  "salary_max": 0,
+  "apply_url": "https://remoteok.com/remote-jobs/900053/apply",
+  "url": "https://remoteok.com/remote-jobs/remote-technical-support-engineer-ist-shift-helpdeskly-900053"
+ },
+ {
+  "slug": "remote-engineering-manager-cloudnest-900056",
+  "id": "900056",
+  "epoch": 1790771707,
+  "date": "2026-09-30T12:35:07.839Z",
+  "company": "Cloudnest",
+  "company_logo": "https://remoteok.com/assets/img/jobs/cloudnest.png",
+  "position": "Engineering Manager",
+  "tags": [
+   "management"
+  ],
+  "description": "<p>Cloudnest is a remote-first team building software used by customers in more than 40 countries.</p><p>You will collaborate with product and design, write well-tested code, review pull requests and help us keep a calm, sustainable pace.</p><ul><li>Strong communication in English</li><li>Ownership mindset</li></ul><p>Benefits: flexible hours, home-office budget, learning stipend and paid time off.</p>",
+  "location": "Europe",
+  "salary_min": 0,
+  "salary_max": 0,
+  "apply_url": "https://remoteok.com/remote-jobs/900056/apply",
+  "url": "https://remoteok.com/remote-jobs/remote-engineering-manager-cloudnest-900056"
+ },
+ {
+  "slug": "remote-golang-engineer-streamyard-tools-900059",
+  "id": "900059",
+  "epoch": 1790858107,
+  "date": "2026-10-01T12:35:07.839Z",
+  "company": "Streamyard Tools",
+  "company_logo": "https://remoteok.com/assets/img/jobs/streamyard-tools.png",
+  "position": "Golang Engineer",
+  "tags": [
+   "go"
+  ],
+  "description": "<p>Streamyard Tools is a remote-first team building software used by customers in more than 40 countries.</p><p>You will collaborate with product and design, write well-tested code, review pull requests and help us keep a calm, sustainable pace.</p><ul><li>Strong communication in English</li><li>Ownership mindset</li></ul><p>We use AI tools like GitHub Copilot day to day.</p><p>Benefits: flexible hours, home-office budget, learning stipend and paid time off.</p>",
+  "location": "Worldwide",
+  "salary_min": 90000,
+  "salary_max": 125000,
+  "apply_url": "https://remoteok.com/remote-jobs/900059/apply",
+  "url": "https://remoteok.com/remote-jobs/remote-golang-engineer-streamyard-tools-900059"
+ },
+ {
+  "slug": "remote-expired-listing-ruby-developer-oldtown-apps-900062",
+  "id": "900062",
+  "epoch": 1788179707,
+  "date": "2026-08-31T12:35:07.839Z",
+  "company": "Oldtown Apps",
+  "company_logo": "https://remoteok.com/assets/img/jobs/oldtown-apps.png",
+  "position": "Expired listing: Ruby Developer",
+  "tags": [
+   "ruby"
+  ],
+  "description": "<p>Oldtown Apps is a remote-first team building software used by customers in more than 40 countries.</p><p>You will collaborate with product and design, write well-tested code, review pull requests and help us keep a calm, sustainable pace.</p><ul><li>Strong communication in English</li><li>Ownership mindset</li></ul><p>Benefits: flexible hours, home-office budget, learning stipend and paid time off.</p>",
+  "location": "Worldwide",
+  "salary_min": 0,
+  "salary_max": 0,
+  "apply_url": "https://remoteok.com/remote-jobs/900062/apply",
+  "url": "https://remoteok.com/remote-jobs/remote-expired-listing-ruby-developer-oldtown-apps-900062"
+ },
+ {
+  "slug": "remote-senior-ai-engineer-lumora-labs-999001",
+  "id": "999001",
+  "epoch": 1791632107,
+  "company": "Lumora Labs",
+  "company_logo": "https://remoteok.com/assets/img/jobs/lumora.png",
+  "position": "Sr. AI Engineer (LLM & RAG)",
+  "tags": [
+   "ai",
+   "llm"
+  ],
+  "description": "<p>Lumora Labs is a remote-first team building software used by customers in more than 40 countries.</p><p>You will design, build and ship production features powered by large language models (LLMs) and Generative AI. Day to day you will work with the OpenAI and Anthropic Claude APIs, build retrieval-augmented generation (RAG) pipelines with LangChain and a vector database (pgvector / Pinecone), and evaluate prompts systematically.</p><ul><li>Build AI agents that call internal tools</li><li>Own prompt engineering and evaluation</li><li>Write clean Python and TypeScript</li></ul><p>Benefits: flexible hours, home-office budget, learning stipend and paid time off.</p>",
+  "location": "Worldwide",
+  "salary_min": 120000,
+  "salary_max": 160000,
+  "apply_url": "https://jobs.lumora-labs.example/apply/senior-ai-engineer-llm-rag-lumora-labs?utm_source=remoteok",
+  "url": "https://remoteok.com/remote-jobs/remote-senior-ai-engineer-lumora-labs-999001"
+ },
+ {
+  "slug": "remote-ai-automation-specialist-flowcraft-999002",
+  "id": "999002",
+  "epoch": 1791635707,
+  "company": "Flowcraft Studio",
+  "company_logo": "",
+  "position": "AI Automation Specialist (n8n + ChatGPT)",
+  "tags": [
+   "n8n",
+   "ai automation",
+   "chatgpt"
+  ],
+  "description": "<p>Flowcraft Studio is a remote-first team building software used by customers in more than 40 countries.</p><p>We automate business workflows with n8n, Zapier and Make.com, connecting CRMs, WhatsApp Business and Google Sheets. Experience integrating ChatGPT into automations is a plus.</p><p>We automate business workflows with n8n, Zapier and Make.com, connecting CRMs, WhatsApp Business and Google Sheets. Experience integrating ChatGPT into automations is a plus.</p><p>Benefits: flexible hours, home-office budget, learning stipend and paid time off.</p>",
+  "location": "Worldwide",
+  "salary_min": 0,
+  "salary_max": 0,
+  "apply_url": "https://remoteok.com/remote-jobs/999002/apply",
+  "url": "https://remoteok.com/remote-jobs/remote-ai-automation-specialist-flowcraft-999002"
+ },
+ {
+  "slug": "remote-crypto-earn",
+  "id": "999003",
+  "epoch": 1791638707,
+  "company": "QuickEarn Online",
+  "position": "Work From Home Typing Job – Earn $500 per day",
+  "tags": [
+   "data entry"
+  ],
+  "description": "<p>Earn $500 per day from home, no experience needed! Pay a registration fee of $20 to start. Salary paid in USDT. Contact us on Telegram only.</p>",
+  "location": "Worldwide",
+  "salary_min": 0,
+  "salary_max": 0,
+  "apply_url": "https://t.me/quickearn",
+  "url": "https://remoteok.com/remote-jobs/remote-crypto-earn-999003"
+ }
+]

@@ -1,0 +1,106 @@
+{
+ "00-warning": "Please link back to Remotive and mention Remotive as a source.",
+ "job-count": 7,
+ "jobs": [
+  {
+   "id": 2001,
+   "url": "https://remotive.com/remote-jobs/ai-ml/llm-engineer-2001",
+   "title": "LLM Engineer",
+   "company_name": "Brightquill",
+   "company_logo": "https://remotive.com/job/2001/logo",
+   "category": "AI / ML",
+   "tags": [
+    "llm",
+    "python",
+    "rag"
+   ],
+   "job_type": "full_time",
+   "publication_date": "2026-10-14T10:07:57.145Z",
+   "candidate_required_location": "Worldwide",
+   "salary": "$90,000 - $130,000",
+   "description": "<p>Build RAG pipelines with LangChain and the OpenAI API. Design AI agents and evaluate prompts.</p>"
+  },
+  {
+   "id": 2002,
+   "url": "https://remotive.com/remote-jobs/software-dev/react-developer-2002",
+   "title": "React Developer (Contract)",
+   "company_name": "Pixelport",
+   "category": "Software Development",
+   "tags": [
+    "react",
+    "typescript"
+   ],
+   "job_type": "contract",
+   "publication_date": "2026-10-13T19:07:57.145Z",
+   "candidate_required_location": "India, Sri Lanka",
+   "salary": "$25-$35/hr",
+   "description": "<p>6 month contract building React dashboards.</p>"
+  },
+  {
+   "id": 2003,
+   "url": "https://remotive.com/remote-jobs/writing/content-writer-2003",
+   "title": "Freelance Content Writer",
+   "company_name": "Wordleaf",
+   "category": "Writing",
+   "tags": [
+    "seo",
+    "content"
+   ],
+   "job_type": "freelance",
+   "publication_date": "2026-10-13T09:07:57.145Z",
+   "candidate_required_location": "Worldwide",
+   "salary": "",
+   "description": "<p>Write SEO blog posts. Paid per article, ongoing work.</p>"
+  },
+  {
+   "id": 2004,
+   "url": "https://remotive.com/remote-jobs/customer-support/support-2004",
+   "title": "Customer Support Specialist",
+   "company_name": "Helply",
+   "category": "Customer Service",
+   "tags": [
+    "support"
+   ],
+   "job_type": "full_time",
+   "publication_date": "2026-10-12T23:07:57.145Z",
+   "candidate_required_location": "USA Only",
+   "salary": "$45k",
+   "description": "<p>Must be located in the United States.</p>"
+  },
+  {
+   "id": 2005,
+   "url": "https://remotive.com/remote-jobs/data/data-analyst-2005",
+   "title": "Data Analyst (Power BI)",
+   "company_name": "Metricly",
+   "category": "Data",
+   "tags": [
+    "power bi",
+    "sql"
+   ],
+   "job_type": "part_time",
+   "publication_date": "2026-10-12T13:07:57.145Z",
+   "candidate_required_location": "APAC",
+   "salary": "",
+   "description": "<p>Part-time Power BI reporting, 20 hours per week.</p>"
+  },
+  {
+   "id": 2006,
+   "url": "https://remotive.com/remote-jobs/design/video-editor-2006",
+   "title": "Video Editor – YouTube",
+   "company_name": "Creatorhaus",
+   "category": "Design",
+   "tags": [
+    "video editing",
+    "youtube"
+   ],
+   "job_type": "freelance",
+   "publication_date": "2026-10-12T03:07:57.145Z",
+   "candidate_required_location": "Worldwide",
+   "salary": "$500 per project",
+   "description": "<p>Edit long-form YouTube videos with Premiere Pro.</p>"
+  },
+  {
+   "title": "Broken item without id"
+  }
+ ]
+}

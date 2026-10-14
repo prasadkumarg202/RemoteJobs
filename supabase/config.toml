@@ -1,0 +1,33 @@
+# Merge these sections into your existing supabase/config.toml.
+# The sync functions authenticate with the x-cron-secret header (or service-role key),
+# so the gateway JWT check is disabled for them.
+
+[functions.sync-himalayas]
+verify_jwt = false
+
+[functions.sync-jobicy]
+verify_jwt = false
+
+[functions.sync-remoteok]
+verify_jwt = false
+
+[functions.sync-startupjobs]
+verify_jwt = false
+
+[functions.expire-jobs]
+verify_jwt = false
+
+[functions.sync-remotive]
+verify_jwt = false
+
+[functions.sync-adzuna]
+verify_jwt = false
+
+[functions.sync-freelancer]
+verify_jwt = false
+
+[functions.sync-workingnomads]
+verify_jwt = false
+
+[functions.sync-arbeitnow]
+verify_jwt = false

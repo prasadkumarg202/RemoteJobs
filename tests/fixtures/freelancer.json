@@ -1,0 +1,145 @@
+{
+ "status": "success",
+ "result": {
+  "total_count": 5,
+  "projects": [
+   {
+    "id": 39001,
+    "title": "Build n8n workflow to sync WhatsApp leads into Google Sheets",
+    "seo_url": "n8n/Build-workflow-sync-WhatsApp-leads",
+    "description": "Need an n8n expert to automate WhatsApp Business leads into Google Sheets and send ChatGPT-generated replies.",
+    "currency": {
+     "code": "INR"
+    },
+    "budget": {
+     "minimum": 12500,
+     "maximum": 37500
+    },
+    "type": "fixed",
+    "time_submitted": 1791986877,
+    "jobs": [
+     {
+      "name": "n8n"
+     },
+     {
+      "name": "Automation"
+     },
+     {
+      "name": "ChatGPT"
+     }
+    ],
+    "status": "active",
+    "local": false
+   },
+   {
+    "id": 39002,
+    "title": "Python script for PDF invoice extraction",
+    "seo_url": "python/Python-script-PDF-invoice",
+    "description": "Extract fields from PDF invoices into Excel. One-time project.",
+    "currency": {
+     "code": "USD"
+    },
+    "budget": {
+     "minimum": 30,
+     "maximum": 250
+    },
+    "type": "fixed",
+    "time_submitted": 1791983277,
+    "jobs": [
+     {
+      "name": "Python"
+     },
+     {
+      "name": "Excel"
+     }
+    ],
+    "status": "active"
+   },
+   {
+    "id": 39003,
+    "title": "Video editor for Telugu YouTube channel",
+    "seo_url": "video-editing/Video-editor-Telugu-YouTube",
+    "description": "Edit 4 long videos and 12 Shorts every month. Ongoing.",
+    "currency": {
+     "code": "INR"
+    },
+    "budget": {
+     "minimum": 600,
+     "maximum": 1500
+    },
+    "type": "hourly",
+    "hourly_project_info": {
+     "duration_enum": "over_six_months",
+     "commitment": {
+      "hours": 10,
+      "interval": "week"
+     }
+    },
+    "time_submitted": 1791979677,
+    "jobs": [
+     {
+      "name": "Video Editing"
+     },
+     {
+      "name": "YouTube"
+     }
+    ],
+    "status": "active"
+   },
+   {
+    "id": 39004,
+    "title": "Fine-tune an LLM chatbot on our support docs (RAG)",
+    "seo_url": "machine-learning/Fine-tune-LLM-chatbot-RAG",
+    "description": "Build a RAG chatbot over our help center using LangChain and a vector database; deploy as a web widget.",
+    "currency": {
+     "code": "USD"
+    },
+    "budget": {
+     "minimum": 750,
+     "maximum": 1500
+    },
+    "type": "fixed",
+    "hourly_project_info": {
+     "duration_enum": "one_to_four_weeks"
+    },
+    "time_submitted": 1791976077,
+    "jobs": [
+     {
+      "name": "Machine Learning (ML)"
+     },
+     {
+      "name": "Python"
+     },
+     {
+      "name": "AI Chatbot"
+     }
+    ],
+    "status": "active"
+   },
+   {
+    "id": 39005,
+    "title": "Logo design for organic food brand",
+    "seo_url": "logo-design/Logo-organic-food-brand",
+    "description": "Need a logo and brand colours.",
+    "currency": {
+     "code": "INR"
+    },
+    "budget": {
+     "minimum": 1500,
+     "maximum": 12500
+    },
+    "type": "fixed",
+    "time_submitted": 1791972477,
+    "jobs": [
+     {
+      "name": "Logo Design"
+     },
+     {
+      "name": "Graphic Design"
+     }
+    ],
+    "status": "closed"
+   }
+  ]
+ }
+}

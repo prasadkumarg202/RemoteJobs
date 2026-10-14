@@ -1,0 +1,45 @@
+{
+  "name": "manakosamu-jobs",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:integration": "bash tests/sql/setup-db.sh && INTEGRATION_PGRST=http://localhost:3011 vitest run tests/integration.test.ts",
+    "sync": "tsx scripts/sync-local.ts",
+    "sync:fixtures": "tsx scripts/sync-local.ts --fixtures",
+    "fixtures": "tsx scripts/make-fixtures.ts && tsx scripts/make-fixtures-extra.ts",
+    "demo-data": "tsx scripts/build-demo-data.ts",
+    "seed-sql": "tsx scripts/generate-seed-sql.ts",
+    "functions:check": "cd supabase/functions && deno check */index.ts"
+  },
+  "dependencies": {
+    "@fontsource-variable/anek-telugu": "^5.3.0",
+    "@supabase/ssr": "^0.12.7",
+    "@supabase/supabase-js": "^2.117.3",
+    "next": "^15.5.27",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "sanitize-html": "^2.18.0",
+    "server-only": "^0.0.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/node": "^26.6.5",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@types/sanitize-html": "^2.16.2",
+    "postcss": "^8.5.29",
+    "tailwindcss": "^4.3.3",
+    "tsx": "^4.23.15",
+    "typescript": "5.9",
+    "vitest": "^5.0.3"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  }
+}

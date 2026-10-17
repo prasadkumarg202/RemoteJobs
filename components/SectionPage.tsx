@@ -1,4 +1,9 @@
+import Link from "next/link";
 import { Suspense } from "react";
+import { placementForSection } from "@/lib/affiliates/catalog";
+import { AffiliateSlot } from "./AffiliateSlot";
+import { CareerjetBox } from "./CareerjetBox";
+import { careerjetPlace } from "@/lib/jobs/careerjet-core";
 import { getDict } from "@/lib/i18n-server";
 import { fmt } from "@/lib/i18n";
 import { getHiddenJobIds, getSavedJobIds, getSectionCounts, PAGE_SIZE, searchJobs } from "@/lib/jobs/data";
@@ -13,6 +18,7 @@ import { Pagination } from "./Pagination";
 import { SearchBar } from "./SearchBar";
 import { SectionTabs } from "./SectionTabs";
 import { Track } from "./Track";
+import { IconSpark } from "./icons";
 
 type Params = Record<string, string | string[] | undefined>;
 
@@ -26,12 +32,13 @@ export function resolveFilters(preset: Pick<PagePreset, "filters" | "defaultIndi
     india: url.india ?? merged.india ?? preset.defaultIndia,
     categories: url.categories?.length ? url.categories : preset.filters.categories,
     aiCategories: url.aiCategories?.length ? url.aiCategories : preset.filters.aiCategories,
-    seniority: url.seniority?.length ? url.seniority : preset.filters.seniority,
+    seniority: merged.seniority?.length ? merged.seniority : preset.filters.seniority,
   };
 }
 
 export async function SectionPage({ preset, params, top, heading, sub }: { preset: PagePreset; params: Params; top?: React.ReactNode; heading?: string; sub?: string }) {
-  const { t } = await getDict();
+  const { t, lang } = await getDict();
+  const placement = placementForSection(preset.section);
   const [hidden, saved, counts] = await Promise.all([getHiddenJobIds(), getSavedJobIds(), getSectionCounts()]);
   const filters = { ...resolveFilters(preset, params), excludeIds: hidden };
   const res = await searchJobs(filters);
@@ -51,6 +58,9 @@ export async function SectionPage({ preset, params, top, heading, sub }: { prese
       {top}
       <div className="mt-5 grid gap-3">
         <SearchBar size="md" action={preset.path} defaultValue={q} />
+        <Link href={`/jobs/ask${q ? `?q=${encodeURIComponent(q)}` : ""}`} className="inline-flex items-center gap-1.5 justify-self-start t-small font-medium text-leaf underline-offset-4 hover:underline">
+          <IconSpark className="h-4 w-4" />{q ? fmt(t.askCtaQ, { q: q.slice(0, 40) }) : t.askCta}
+        </Link>
         {preset.indiaToggle && <Suspense><IndiaToggle defaultMode={preset.defaultIndia ?? "any"} /></Suspense>}
       </div>
       {q && <Track event="search" query={q} section={preset.section} />}
@@ -74,6 +84,8 @@ export async function SectionPage({ preset, params, top, heading, sub }: { prese
             </ul>
           )}
           <Pagination path={preset.path} params={params} page={page} total={res.total} pageSize={PAGE_SIZE} labels={{ previous: t.previous, next: t.next }} />
+          {preset.careerjet && <Suspense><CareerjetBox q={q} place={careerjetPlace(filters)} t={t} /></Suspense>}
+          {placement && <AffiliateSlot placement={placement} t={t} lang={lang} />}
         </section>
       </div>
     </div>

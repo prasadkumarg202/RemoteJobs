@@ -50,8 +50,11 @@ export async function runSync(adapter: SourceAdapter, repo: JobRepository, opts:
     result.skipped_reason = "disabled";
     return result;
   }
-  if (!opts.force && source.last_run_at && now.getTime() - new Date(source.last_run_at).getTime() < source.min_interval_minutes * 60000) {
-    result.skipped_reason = `ran less than ${source.min_interval_minutes} minutes ago (source rate policy)`;
+  // A run that failed (no success since it started) may be retried after an hour instead of the full interval.
+  const lastFailed = !!source.last_run_at && (!source.last_success_at || new Date(source.last_success_at) < new Date(source.last_run_at));
+  const interval = lastFailed ? Math.min(source.min_interval_minutes, 60) : source.min_interval_minutes;
+  if (!opts.force && source.last_run_at && now.getTime() - new Date(source.last_run_at).getTime() < interval * 60000) {
+    result.skipped_reason = `ran less than ${interval} minutes ago (source rate policy)`;
     return result;
   }
 
@@ -154,7 +157,8 @@ export async function runSync(adapter: SourceAdapter, repo: JobRepository, opts:
 
     // Full-feed sources (Remote OK) list every live job: anything missing was removed upstream.
     // Guard against a truncated/empty payload wiping the catalogue.
-    if (source.full_feed && !fetched.notModified && !fetched.usedFallback && normalized.length >= 20) {
+    const fullFeedMin = Number(source.config.full_feed_min ?? 20);
+    if (source.full_feed && !fetched.notModified && !fetched.usedFallback && !fetched.partial && normalized.length >= Math.max(1, fullFeedMin)) {
       result.jobs_expired = await repo.deactivateMissing(source.id, [...seenIds]);
     }
 

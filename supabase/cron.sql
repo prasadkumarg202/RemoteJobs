@@ -41,7 +41,7 @@ revoke execute on function public.invoke_job_function(text) from public, anon, a
 do $$
 declare j text;
 begin
-  foreach j in array array['jobs-sync-himalayas','jobs-sync-jobicy','jobs-sync-remoteok','jobs-sync-startupjobs','jobs-sync-remotive','jobs-sync-adzuna','jobs-sync-freelancer','jobs-sync-workingnomads','jobs-sync-arbeitnow','jobs-expire','jobs-alerts','jobs-events-retention'] loop
+  foreach j in array array['jobs-sync-himalayas','jobs-sync-jobicy','jobs-sync-remoteok','jobs-sync-startupjobs','jobs-sync-remotive','jobs-sync-adzuna','jobs-sync-freelancer','jobs-sync-workingnomads','jobs-sync-arbeitnow','jobs-sync-greenhouse','jobs-sync-lever','jobs-sync-ashby','jobs-sync-weworkremotely','jobs-sync-jooble','jobs-embed','jobs-expire','jobs-alerts','jobs-events-retention'] loop
     if exists (select 1 from cron.job where jobname = j) then perform cron.unschedule(j); end if;
   end loop;
 end $$;
@@ -55,6 +55,12 @@ select cron.schedule('jobs-sync-adzuna',        '11 2,14 * * *', $$select public
 select cron.schedule('jobs-sync-freelancer',    '29 */6 * * *',  $$select public.invoke_job_function('sync-freelancer')$$);
 select cron.schedule('jobs-sync-workingnomads', '47 3,15 * * *', $$select public.invoke_job_function('sync-workingnomads')$$);
 select cron.schedule('jobs-sync-arbeitnow',     '59 4,16 * * *', $$select public.invoke_job_function('sync-arbeitnow')$$);
+select cron.schedule('jobs-sync-greenhouse',    '13 5,17 * * *', $$select public.invoke_job_function('sync-greenhouse')$$);
+select cron.schedule('jobs-sync-lever',         '37 5,17 * * *', $$select public.invoke_job_function('sync-lever')$$);
+select cron.schedule('jobs-sync-ashby',         '49 5,17 * * *', $$select public.invoke_job_function('sync-ashby')$$);
+select cron.schedule('jobs-sync-weworkremotely','5 */6 * * *',   $$select public.invoke_job_function('sync-weworkremotely')$$);
+select cron.schedule('jobs-sync-jooble',        '19 1,13 * * *', $$select public.invoke_job_function('sync-jooble')$$);
+select cron.schedule('jobs-embed',            '21,51 * * * *', $$select public.invoke_job_function('embed-jobs')$$);  -- smart search vectors
 select cron.schedule('jobs-expire',           '35 */3 * * *',  $$select public.expire_jobs()$$);
 select cron.schedule('jobs-alerts',           '52 * * * *',    $$select public.process_job_alerts()$$);
 -- Analytics retention: keep raw events for 180 days.

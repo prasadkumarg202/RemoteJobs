@@ -39,6 +39,19 @@ export interface JobRepository {
 const REF_COLUMNS =
   "id,source_id,canonical_url,content_hash,normalized_title,normalized_company,short_description,salary_min,salary_max,salary_currency,posted_at,company_logo,is_active";
 
+/** Splits filter values so each request URL stays short (AapStack refuses very long URLs). */
+function chunkByLength(values: string[], maxCount: number, maxChars = 2500): string[][] {
+  const out: string[][] = [];
+  let cur: string[] = [], len = 0;
+  for (const v of values) {
+    const l = encodeURIComponent(v).length + 3;
+    if (cur.length && (cur.length >= maxCount || len + l > maxChars)) { out.push(cur); cur = []; len = 0; }
+    cur.push(v); len += l;
+  }
+  if (cur.length) out.push(cur);
+  return out;
+}
+
 function chunk<T>(arr: T[], n: number): T[][] {
   const out: T[][] = [];
   for (let i = 0; i < arr.length; i += n) out.push(arr.slice(i, i + n));
@@ -87,7 +100,7 @@ export class SupabaseJobRepository implements JobRepository {
 
   async findOwned(sourceId: string, ids: string[]): Promise<Map<string, OwnedRef>> {
     const out = new Map<string, OwnedRef>();
-    for (const part of chunk(ids, 150)) {
+    for (const part of chunkByLength(ids, 150)) {
       const rows = check(await this.db.from("jobs").select("id,source_job_id,payload_hash,moderation_status,is_active").eq("source_id", sourceId).in("source_job_id", part), "findOwned") as Array<OwnedRef & { source_job_id: string }>;
       for (const r of rows ?? []) out.set(r.source_job_id, r);
     }
@@ -96,7 +109,7 @@ export class SupabaseJobRepository implements JobRepository {
 
   async findMapped(sourceId: string, ids: string[]): Promise<Map<string, string>> {
     const out = new Map<string, string>();
-    for (const part of chunk(ids, 150)) {
+    for (const part of chunkByLength(ids, 150)) {
       const rows = check(await this.db.from("job_sources_mapping").select("job_id,external_job_id").eq("source_id", sourceId).in("external_job_id", part), "findMapped") as Array<{ job_id: string; external_job_id: string }>;
       for (const r of rows ?? []) out.set(r.external_job_id, r.job_id);
     }
@@ -107,7 +120,7 @@ export class SupabaseJobRepository implements JobRepository {
     const byId = new Map<string, ExistingJobRef>();
     const since = new Date(Date.now() - 90 * 86400000).toISOString();
     const run = async (col: string, vals: string[]) => {
-      for (const part of chunk([...new Set(vals.filter(Boolean))], 100)) {
+      for (const part of chunkByLength([...new Set(vals.filter(Boolean))], 100)) {
         const rows = check(await this.db.from("jobs").select(REF_COLUMNS).in(col, part).gte("posted_at", since).limit(1000), `findCandidates(${col})`) as ExistingJobRef[];
         for (const r of rows ?? []) byId.set(r.id, r);
       }

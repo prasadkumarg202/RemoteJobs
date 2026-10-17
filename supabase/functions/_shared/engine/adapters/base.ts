@@ -26,6 +26,8 @@ export interface FetchResult {
   warnings: string[];
   /** Items dropped by the adapter because they lacked required fields (id/title/url). */
   invalid?: number;
+  /** Some sub-feeds failed this run: don't close jobs that are merely missing. */
+  partial?: boolean;
 }
 
 export interface SourceAdapter {

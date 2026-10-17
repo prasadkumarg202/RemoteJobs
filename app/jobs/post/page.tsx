@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { AffiliateSlot } from "@/components/AffiliateSlot";
 import { PostJobForm } from "@/components/PostJobForm";
 import { DEMO_MODE } from "@/lib/env";
 import { getDict } from "@/lib/i18n-server";
@@ -8,7 +9,7 @@ import { currentUser } from "@/lib/supabase/server";
 export const metadata: Metadata = { title: "Post a job", description: "Post a job on Mana Kosamu for free. Every job is reviewed before it goes live." };
 
 export default async function PostJobPage() {
-  const { t } = await getDict();
+  const { t, lang } = await getDict();
   const user = await currentUser();
   return (
     <div className="mx-auto max-w-2xl px-4 pt-6">
@@ -26,6 +27,7 @@ export default async function PostJobPage() {
           <PostJobForm phone={user.phone ? `+${user.phone.replace(/^\+/, "")}` : null} />
         )}
       </div>
+      <AffiliateSlot placement="post" t={t} lang={lang} />
     </div>
   );
 }

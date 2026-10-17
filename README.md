@@ -2,10 +2,13 @@
 
 Jobs module for Mana Kosamu: **Local, Remote, AI, Freelance/Gigs, Work From Home and Government** jobs, built with Next.js 15 (App Router) + TypeScript + Tailwind v4 + Supabase/PostgreSQL.
 
-Remote listings are aggregated from sources whose current terms allow it (Himalayas, Jobicy, Remote OK, Remotive enabled; Adzuna India, Freelancer.com, Working Nomads, Arbeitnow and Startup Jobs built but disabled until keys/terms are in place), normalized, classified (AI score, freelance type, duration, skills), checked for India eligibility, de-duplicated across sources, risk-checked, and served from Supabase — never fetched during a user's page request.
+Remote listings are aggregated from sources whose current terms allow it (Himalayas, Jobicy, Remote OK, Remotive enabled; Adzuna India, Freelancer.com, Working Nomads, Arbeitnow and Startup Jobs built but disabled until keys/terms are in place), plus direct company careers pages via Greenhouse and Lever, and government notifications entered from official portals, normalized, classified (AI score, freelance type, duration, skills), checked for India eligibility, de-duplicated across sources, risk-checked, and served from Supabase — never fetched during a user's page request.
 
 > See **[docs/DELIVERY.md](docs/DELIVERY.md)** for the full delivery report (files, migrations, functions, cron, security, attribution, test results, deployment).
 > See **[docs/SOURCES.md](docs/SOURCES.md)** for each source's terms and polling policy.
+> See **[docs/AAPSTACK.md](docs/AAPSTACK.md)** to run on AapStack instead of Supabase (migrations, Node functions, cron, one-command deploy).
+> See **[docs/SUBSCRIPTIONS.md](docs/SUBSCRIPTIONS.md)** for the paid app: mobile-OTP sign-in with automatic OTP fill, one device per account, Razorpay subscriptions.
+> See **[docs/AFFILIATES.md](docs/AFFILIATES.md)** for earning from affiliate partners (Fiverr, Upwork, Coursera, Udemy, Payoneer, Wise …) — all off until you paste your links in `/admin/jobs/affiliates`.
 
 ## Run it in 2 minutes (demo mode)
 

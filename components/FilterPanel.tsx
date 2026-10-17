@@ -3,6 +3,7 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { AI_PAGE_SUBCATEGORIES, CATEGORIES, GROUPS } from "@engine/taxonomy.ts";
 import { COUNTRIES } from "@engine/geo.ts";
+import { DISTRICTS, STATE_NAMES } from "@engine/districts.ts";
 import { FILTER_KEYS } from "@/lib/jobs/filters";
 import { track } from "@/lib/client/track";
 import type { Dict } from "@/lib/i18n";
@@ -11,10 +12,10 @@ import { IconClose, IconFilter } from "./icons";
 
 export type FilterGroup =
   | "country" | "region" | "category" | "skill" | "aiCategory" | "experience" | "salary"
-  | "type" | "budget" | "duration" | "posted" | "mode" | "sort";
+  | "type" | "budget" | "duration" | "posted" | "mode" | "sort" | "state" | "district";
 
 interface Option { v: string; label: string }
-interface GroupDef { key: string; title: string; multi: boolean; options: Option[] }
+interface GroupDef { key: string; title: string; multi: boolean; options: Option[]; select?: { all: string; groups: Array<{ label: string; state: string; options: Option[] }> } }
 
 function groupDefs(t: Dict, lang: "en" | "te"): Record<FilterGroup, GroupDef> {
   const name = (c: { name: string; name_te: string }) => (lang === "te" ? c.name_te : c.name);
@@ -42,11 +43,35 @@ function groupDefs(t: Dict, lang: "en" | "te"): Record<FilterGroup, GroupDef> {
     duration: { key: "dur", title: t.duration, multi: true, options: ["one_time", "less_than_1_month", "1_to_3_months", "3_to_6_months", "6_plus_months", "ongoing"].map((v) => ({ v, label: t[v as keyof Dict] as string })) },
     posted: { key: "posted", title: t.postedDate, multi: false, options: [{ v: "1", label: t.last24h }, { v: "3", label: t.last3d }, { v: "7", label: t.last7d }, { v: "30", label: t.last30d }] },
     mode: { key: "mode", title: t.workMode, multi: true, options: [{ v: "onsite", label: "On-site" }, { v: "hybrid", label: "Hybrid" }, { v: "remote", label: t.remote }] },
+    state: { key: "state", title: t.state, multi: false, options: [
+      { v: "ap", label: lang === "te" ? STATE_NAMES.AP.name_te : STATE_NAMES.AP.name },
+      { v: "ts", label: lang === "te" ? STATE_NAMES.TS.name_te : STATE_NAMES.TS.name },
+      { v: "all", label: t.allIndia },
+    ] },
+    district: { key: "district", title: t.district, multi: false, options: [], select: {
+      all: t.allDistricts,
+      groups: (["AP", "TS"] as const).map((st) => ({
+        label: lang === "te" ? STATE_NAMES[st].name_te : STATE_NAMES[st].name,
+        state: st.toLowerCase(),
+        options: DISTRICTS.filter((d) => d.state === st).map((d) => ({ v: d.slug, label: lang === "te" ? d.name_te : d.name })).sort((a, b) => a.label.localeCompare(b.label)),
+      })),
+    } },
     sort: { key: "sort", title: t.sortBy, multi: false, options: [{ v: "relevance", label: t.sortRelevance }, { v: "newest", label: t.sortNewest }, { v: "salary", label: t.sortSalary }] },
   };
 }
 
 type State = Record<string, string[]>;
+
+/** Apply one group change; picking another state (or All India) clears a district outside it. */
+function withChange(s: State, key: string, values: string[]): State {
+  const next = { ...s, [key]: values };
+  if (key === "state" && next.district?.length) {
+    const d = DISTRICTS.find((x) => x.slug === next.district[0]);
+    const st = values[0];
+    if (st === "all" || (st && d && d.state.toLowerCase() !== st)) next.district = [];
+  }
+  return next;
+}
 
 function readState(sp: URLSearchParams): State {
   const s: State = {};
@@ -59,6 +84,21 @@ function readState(sp: URLSearchParams): State {
 
 function GroupFields({ def, state, onChange }: { def: GroupDef; state: State; onChange: (key: string, values: string[]) => void }) {
   const selected = state[def.key] ?? [];
+  if (def.select) {
+    // Long lists (61 districts) use a native select, narrowed to the chosen state.
+    const st = state.state?.[0];
+    const groups = def.select.groups.filter((g) => !st || st === "all" || g.state === st);
+    return (
+      <label className="block border-t border-line py-4 first:border-t-0">
+        <span className="mb-2 block t-small font-semibold">{def.title}</span>
+        <select value={selected[0] ?? ""} onChange={(e) => onChange(def.key, e.target.value ? [e.target.value] : [])}
+          className="min-h-11 w-full rounded-lg border border-line-strong bg-surface px-3 text-ink">
+          <option value="">{def.select.all}</option>
+          {groups.map((g) => <optgroup key={g.state} label={g.label}>{g.options.map((o) => <option key={o.v} value={o.v}>{o.label}</option>)}</optgroup>)}
+        </select>
+      </label>
+    );
+  }
   const toggle = (v: string) => {
     if (def.multi) onChange(def.key, selected.includes(v) ? selected.filter((x) => x !== v) : [...selected, v]);
     else onChange(def.key, selected[0] === v ? [] : [v]);
@@ -115,6 +155,8 @@ export function FilterPanel({ groups, total }: { groups: FilterGroup[]; total: n
   };
 
   const listed = groups.filter((g) => g !== "sort");
+  // "All India" (national notifications) only applies to government jobs.
+  if (!path.startsWith("/jobs/government")) defs.state = { ...defs.state, options: defs.state.options.filter((o) => o.v !== "all") };
 
   return (
     <>
@@ -135,7 +177,7 @@ export function FilterPanel({ groups, total }: { groups: FilterGroup[]; total: n
             <button type="button" onClick={() => setOpen(false)} aria-label={t.close} className="grid h-11 w-11 place-items-center rounded-full"><IconClose /></button>
           </div>
           <div className="flex-1 overflow-y-auto px-4">
-            {listed.map((g) => <GroupFields key={g} def={defs[g]} state={staged} onChange={(k, v) => setStaged((s) => ({ ...s, [k]: v }))} />)}
+            {listed.map((g) => <GroupFields key={g} def={defs[g]} state={staged} onChange={(k, v) => setStaged((s) => withChange(s, k, v))} />)}
           </div>
           <div className="flex gap-2 border-t border-line p-3" style={{ paddingBottom: "max(12px, env(safe-area-inset-bottom))" }}>
             <button type="button" onClick={() => setStaged({})} className="min-h-12 flex-1 rounded-full border border-line-strong font-medium">{t.clearAll}</button>
@@ -151,7 +193,7 @@ export function FilterPanel({ groups, total }: { groups: FilterGroup[]; total: n
             <h2 className="t-h3">{t.filters}</h2>
             {active > 0 && <button type="button" onClick={() => { setStaged({}); push({}); }} className="t-small text-ink-soft underline underline-offset-4">{t.clearAll}</button>}
           </div>
-          {listed.map((g) => <GroupFields key={g} def={defs[g]} state={staged} onChange={(k, v) => { const s = { ...staged, [k]: v }; setStaged(s); push(s); }} />)}
+          {listed.map((g) => <GroupFields key={g} def={defs[g]} state={staged} onChange={(k, v) => { const s = withChange(staged, k, v); setStaged(s); push(s); }} />)}
         </div>
       </aside>
     </>

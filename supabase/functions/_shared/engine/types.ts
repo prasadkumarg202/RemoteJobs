@@ -88,6 +88,8 @@ export interface RawJob {
   city?: string | null;
   state?: string | null;
   country?: string | null;
+  /** AP/Telangana district slug (see districts.ts); derived from city/location when absent. */
+  district?: string | null;
   /** Employer submissions only. */
   applyEmail?: string | null;
   applyWhatsapp?: string | null;
@@ -120,6 +122,7 @@ export interface NormalizedJob {
   country: string | null;
   state: string | null;
   city: string | null;
+  district: string | null;
   region: string | null;
   location_text: string | null;
 
@@ -211,6 +214,8 @@ export interface SourceConfig {
   retention_days: number;
   full_feed: boolean;
   last_run_at: string | null;
+  /** Set when a run finished without errors; a failed last run may be retried sooner. */
+  last_success_at?: string | null;
   config: Record<string, unknown>;
   http_cache: Record<string, unknown>;
 }

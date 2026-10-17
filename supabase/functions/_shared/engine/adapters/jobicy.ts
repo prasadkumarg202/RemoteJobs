@@ -114,8 +114,20 @@ export class JobicyAdapter implements SourceAdapter {
           if (tax && !tax.industries.includes(q.industry)) { warnings.push(`Unknown Jobicy industry "${q.industry}" skipped`); continue; }
           url.searchParams.set("industry", q.industry);
         }
-        if (q.tag) url.searchParams.set("tag", q.tag.slice(0, 50));
-        const { data } = await ctx.http.json<{ jobs?: JobicyJob[]; jobCount?: number }>(url.toString());
+        if (q.tag) {
+          // Jobicy rejects tags shorter than 3 or longer than 50 characters (HTTP 400).
+          if (q.tag.trim().length < 3) { warnings.push(`Jobicy tag "${q.tag}" is shorter than 3 characters; skipped`); continue; }
+          url.searchParams.set("tag", q.tag.trim().slice(0, 50));
+        }
+        let data: { jobs?: JobicyJob[]; jobCount?: number } | null | undefined;
+        try {
+          ({ data } = await ctx.http.json<{ jobs?: JobicyJob[]; jobCount?: number }>(url.toString()));
+        } catch (e) {
+          // One bad query shouldn't throw away the others; only fail (→ RSS fallback) when nothing worked.
+          if (i === qs.length - 1 && byId.size === 0) throw e;
+          warnings.push(`Jobicy query ${url.search} failed: ${(e as Error).message}`);
+          continue;
+        }
         if (!data || typeof data !== "object") throw new SourceValidationError("Jobicy response is not an object");
         // An empty jobs array (or jobCount: 0) is a valid "no results" answer; anything else without jobs[] is not.
         if (!Array.isArray(data.jobs) && data.jobCount !== 0) throw new SourceValidationError("Jobicy response missing jobs[]");

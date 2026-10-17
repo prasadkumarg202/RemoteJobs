@@ -29,7 +29,7 @@ export async function getAdminStats(): Promise<AdminStats> {
       freelance: j.filter((x) => x.sections.includes("freelance")).length, india_eligible: j.filter((x) => ["explicit", "worldwide", "region", "timezone"].includes(x.india_eligibility) && x.work_mode === "remote").length,
       added_today: 0, expired_today: 0, duplicates: j.reduce((n, x) => n + Math.max(0, x.source_count - 1), 0), multi_source_jobs: j.filter((x) => x.source_count > 1).length,
       flagged: j.filter((x) => x.risk_level !== "low").length, pending: 0, open_reports: 0,
-      sources: [src("himalayas", "Himalayas"), src("jobicy", "Jobicy"), src("remoteok", "Remote OK"), src("remotive", "Remotive"), src("adzuna", "Adzuna"), src("freelancer", "Freelancer.com"), src("workingnomads", "Working Nomads"), src("arbeitnow", "Arbeitnow"), src("startupjobs", "Startup Jobs")],
+      sources: [src("himalayas", "Himalayas"), src("jobicy", "Jobicy"), src("remoteok", "Remote OK"), src("remotive", "Remotive"), src("adzuna", "Adzuna"), src("freelancer", "Freelancer.com"), src("workingnomads", "Working Nomads"), src("arbeitnow", "Arbeitnow"), src("startupjobs", "Startup Jobs"), src("greenhouse", "Greenhouse"), src("lever", "Lever"), src("ashby", "Ashby"), src("weworkremotely", "We Work Remotely"), src("jooble", "Jooble")],
     };
   }
   const sb = await supabaseServer();

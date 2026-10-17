@@ -1,5 +1,5 @@
 "use server";
-import { employerSubmissionToRaw, normalizeJob, type EmployerSubmission } from "@engine";
+import { DISTRICT_BY_SLUG, employerSubmissionToRaw, normalizeJob, STATE_NAMES, type EmployerSubmission } from "@engine";
 import { SITE_URL } from "@/lib/env";
 import { supabaseAdmin } from "@/lib/supabase/admin";
 import { supabaseServer } from "@/lib/supabase/server";
@@ -44,6 +44,9 @@ export async function submitJob(_: PostState | null, fd: FormData): Promise<Post
   if (method === "email" && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(applyEmail)) errors.apply_email = "Enter a valid email.";
   if (method === "whatsapp" && applyWhatsapp.replace(/\D/g, "").length < 10) errors.apply_whatsapp = "Enter a WhatsApp number.";
   if (method === "external_url" && !/^https?:\/\//.test(applyUrl)) errors.apply_url = "Enter a link starting with https://";
+  const district = s("district", 40);
+  if (district && !DISTRICT_BY_SLUG[district]) errors.district = "Choose a district from the list.";
+  else if (district && s("state") && STATE_NAMES[DISTRICT_BY_SLUG[district].state].name !== s("state")) errors.district = "This district is not in the chosen state.";
   if (salaryMin && salaryMax && salaryMin > salaryMax) errors.salary_max = "Maximum must be more than minimum.";
   if (fd.get("terms") !== "on") errors.terms = "Accept the terms to continue.";
   if (fd.get("privacy") !== "on") errors.privacy = "Accept the privacy policy to continue.";
@@ -60,7 +63,7 @@ export async function submitJob(_: PostState | null, fd: FormData): Promise<Post
   const sub: EmployerSubmission = {
     submissionId, contactName: name, companyName: company, title, description,
     salaryMin, salaryMax, salaryCurrency: "INR", salaryPeriod: s("salary_period") || "monthly",
-    city: s("city", 60) || null, state: s("state", 60) || null, country: "India",
+    city: s("city", 60) || null, state: s("state", 60) || null, country: "India", district: district || null,
     workMode, employmentType, skills: s("skills", 300).split(",").map((x) => x.trim()).filter(Boolean).slice(0, 15),
     applicationMethod: method, applyEmail, applyWhatsapp, applyUrl,
   };

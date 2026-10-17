@@ -23,6 +23,8 @@ export interface PagePreset {
   indiaToggle: boolean;
   defaultIndia?: "eligible" | "india_only";
   emptyKey?: "govEmpty" | "localEmpty";
+  /** Show "More jobs from Careerjet" under the results. */
+  careerjet?: boolean;
 }
 
 const REMOTE_GROUPS: FilterGroup[] = ["country", "region", "category", "skill", "experience", "salary", "type", "posted"];
@@ -69,12 +71,12 @@ export const PRESETS: Record<string, PagePreset> = {
   government: {
     path: "/jobs/government", section: "government", filters: { sections: ["government"] }, heroKey: "govHero", subKey: "govHeroSub", emptyKey: "govEmpty",
     title: "Government jobs — official notifications", description: "Government job notifications with links to the official websites.",
-    groups: ["posted"], card: "job", indiaToggle: false,
+    groups: ["state", "district", "experience", "posted"], card: "job", indiaToggle: false,
   },
   local: {
     path: "/jobs/local", section: "local", filters: { sections: ["local"] }, heroKey: "localHero", subKey: "localHeroSub", emptyKey: "localEmpty",
     title: "Local jobs in Andhra Pradesh & Telangana", description: "Jobs posted directly by local businesses in Hyderabad, Vijayawada, Visakhapatnam and across AP & Telangana.",
-    groups: ["category", "type", "salary", "mode", "posted"], card: "job", indiaToggle: false,
+    groups: ["state", "district", "category", "type", "experience", "salary", "mode", "posted"], card: "job", indiaToggle: false,
   },
 };
 

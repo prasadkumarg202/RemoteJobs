@@ -1,6 +1,7 @@
 "use client";
 import { useActionState, useState } from "react";
 import { submitJob, type PostState } from "@/app/jobs/post/actions";
+import { DISTRICTS } from "@engine/districts.ts";
 import { CITIES } from "./CityPicker";
 import { useI18n } from "./I18nProvider";
 
@@ -41,6 +42,14 @@ export function PostJobForm({ phone }: { phone: string | null }) {
         {mode !== "remote" && <>
           <Field e={e} label="City" k="city"><input name="city" list="mk-cities" className={field(e.city)} /><datalist id="mk-cities">{CITIES.map((c) => <option key={c} value={c} />)}</datalist></Field>
           <Field e={e} label="State" k="state"><select name="state" className={field()}><option>Andhra Pradesh</option><option>Telangana</option><option>Karnataka</option><option>Tamil Nadu</option><option>Other</option></select></Field>
+          <Field e={e} label={`${t.district} (AP / Telangana)`} k="district"><select name="district" defaultValue="" className={field(e.district)}>
+            <option value="">—</option>
+            {(["AP", "TS"] as const).map((st) => (
+              <optgroup key={st} label={st === "AP" ? "Andhra Pradesh" : "Telangana"}>
+                {DISTRICTS.filter((d) => d.state === st).sort((a, b) => a.name.localeCompare(b.name)).map((d) => <option key={d.slug} value={d.slug}>{d.name}</option>)}
+              </optgroup>
+            ))}
+          </select></Field>
         </>}
       </div>
       <fieldset className="grid gap-4 sm:grid-cols-3">

@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import { AuthHashHandler } from "@/components/AuthHashHandler";
 import { BottomNav } from "@/components/BottomNav";
+import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { I18nProvider } from "@/components/I18nProvider";
 import { SITE_URL } from "@/lib/env";
@@ -26,9 +28,10 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     <html lang={lang === "te" ? "te" : "en-IN"}>
       <body className="min-h-dvh antialiased">
         <I18nProvider lang={lang}>
+          <AuthHashHandler />
           <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:left-3 focus:top-3 focus:z-50 focus:bg-surface focus:p-3">Skip to content</a>
           <Header />
-          <main id="main" className="pb-nav">{children}</main>
+          <main id="main" className="pb-nav">{children}<Footer /></main>
           <BottomNav />
         </I18nProvider>
       </body>

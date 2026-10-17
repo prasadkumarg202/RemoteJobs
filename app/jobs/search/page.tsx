@@ -5,7 +5,7 @@ import { pageMetadata, type PagePreset } from "@/lib/jobs/pages";
 const preset: PagePreset = {
   path: "/jobs/search", section: "all", filters: {}, heroKey: null, subKey: null,
   title: "Search jobs", description: "Search local, remote, AI and freelance jobs.",
-  groups: ["category", "skill", "type", "mode", "country", "experience", "salary", "posted"], card: "job", indiaToggle: true,
+  groups: ["category", "skill", "type", "mode", "country", "experience", "salary", "posted"], card: "job", indiaToggle: true, careerjet: true,
 };
 
 type Props = { searchParams: Promise<Record<string, string | string[] | undefined>> };

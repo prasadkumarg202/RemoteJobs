@@ -58,6 +58,8 @@ export function demoSearch(f: JobFilters): SearchResult {
     if (f.postedWithin && now - new Date(j.posted_at).getTime() > f.postedWithin * 86400000) continue;
     if (f.sources?.length && !j.sources.some((s) => f.sources!.includes(s.slug))) continue;
     if (f.city && j.city?.toLowerCase() !== f.city.toLowerCase()) continue;
+    if (f.district && j.district !== f.district) continue;
+    if (f.state && !(f.state === "all_india" ? !j.state && j.country === "IN" : j.state === f.state)) continue;
     if (f.excludeIds?.includes(j.id)) continue;
     const s = f.q ? textScore(j, f.q) : 1;
     if (s > 0) scored.push({ j, s });

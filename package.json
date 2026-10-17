@@ -14,10 +14,19 @@
     "fixtures": "tsx scripts/make-fixtures.ts && tsx scripts/make-fixtures-extra.ts",
     "demo-data": "tsx scripts/build-demo-data.ts",
     "seed-sql": "tsx scripts/generate-seed-sql.ts",
-    "functions:check": "cd supabase/functions && deno check */index.ts"
+    "functions:check": "cd supabase/functions && deno check */index.ts",
+    "aapstack:build": "tsx scripts/aapstack/convert-migrations.ts && tsx scripts/aapstack/build-functions.ts",
+    "aapstack:deploy": "node scripts/aapstack/deploy.mjs",
+    "test:aapstack": "tests/sql/setup-aapstack-db.sh && INTEGRATION_DB=aap INTEGRATION_PGRST=http://localhost:3013 INTEGRATION_AAP_PGRST=http://localhost:3013 vitest run tests/integration.test.ts tests/aapstack-functions.test.ts",
+    "aapstack:smoke": "node scripts/aapstack/smoke.mjs",
+    "cf:build": "opennextjs-cloudflare build",
+    "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
+    "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
+    "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts"
   },
   "dependencies": {
     "@fontsource-variable/anek-telugu": "^5.3.0",
+    "@opennextjs/cloudflare": "^1.20.12",
     "@supabase/ssr": "^0.12.7",
     "@supabase/supabase-js": "^2.117.3",
     "next": "^15.5.27",
@@ -36,7 +45,8 @@
     "tailwindcss": "^4.3.3",
     "tsx": "^4.23.15",
     "typescript": "5.9",
-    "vitest": "^5.0.3"
+    "vitest": "^5.0.3",
+    "wrangler": "^4.151.1"
   },
   "type": "module",
   "engines": {

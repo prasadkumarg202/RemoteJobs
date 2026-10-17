@@ -1,3 +1,4 @@
+import { AffiliateSlot } from "@/components/AffiliateSlot";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -103,7 +104,7 @@ export default async function JobPage({ params, searchParams }: Props) {
 
   const job = await getJobBySlug(slug);
   if (!job) notFound();
-  const { t } = await getDict();
+  const { t, lang } = await getDict();
   const saved = (await getSavedJobIds()).includes(job.id);
   const pay = payLabel(job);
   const exp = experienceLabel(job, t);
@@ -208,6 +209,7 @@ export default async function JobPage({ params, searchParams }: Props) {
             {job.sources.some((s) => s.name === "Adzuna") && <div className="mt-3"><SourceBadge source="Adzuna" /></div>}
             {job.sources.length > 1 && <p className="mt-3 rounded-lg bg-paper px-3 py-2 t-tiny text-ink-soft">{t.foundOnMultiple}</p>}
           </div>
+          <div className="mt-4"><AffiliateSlot placement="job" t={t} lang={lang} compact /></div>
         </aside>
       </div>
 

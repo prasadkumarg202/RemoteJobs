@@ -31,3 +31,9 @@ verify_jwt = false
 
 [functions.sync-arbeitnow]
 verify_jwt = false
+
+[functions.sync-greenhouse]
+verify_jwt = false
+
+[functions.sync-lever]
+verify_jwt = false

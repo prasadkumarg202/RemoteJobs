@@ -1,0 +1,21 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  // Mana Kosamu jobs (Next.js 15) on Cloudflare Workers via the OpenNext adapter.
+  "name": "remotejobs",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2026-10-17",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  "upload_source_maps": true,
+  "observability": { "enabled": true },
+  // Plain-text, non-secret settings. Keys, tokens and secrets are set in the Cloudflare
+  // dashboard (Worker → Settings → Variables and Secrets), never in this file.
+  "vars": {
+    "ACCESS_MODE": "subscription"
+  },
+  // Keep variables added in the dashboard when this file is deployed.
+  "keep_vars": true
+}

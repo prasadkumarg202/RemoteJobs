@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { DEMO_MODE } from "@/lib/env";
 import { getAdminAnalytics, getAdminStats, type SourceHealth } from "@/lib/jobs/admin-data";
 import { isAdmin, supabaseServer } from "@/lib/supabase/server";
+import { BoardsForm } from "@/components/BoardsForm";
 import { runSyncNow, setSourceEnabled, updateRate } from "./actions";
 
 export const metadata: Metadata = { title: "Jobs admin", robots: { index: false } };
@@ -53,12 +54,23 @@ export default async function AdminJobsPage() {
   const analytics = await getAdminAnalytics(30);
   const sb = await supabaseServer();
   const rates = sb ? ((await sb.from("exchange_rates").select("*").order("currency")).data ?? []) : [];
+  type Board = { token: string; company: string; eu?: boolean };
+  const atsRows = sb ? ((await sb.from("job_sources").select("slug,config").in("slug", ["greenhouse", "lever", "ashby"])).data ?? []) as Array<{ slug: string; config: { boards?: Board[]; location_filter?: string } }> : [];
+  const ats = (slug: string) => {
+    const c = atsRows.find((r) => r.slug === slug)?.config ?? {};
+    return { lines: (c.boards ?? []).map((b) => [b.token, b.company, b.eu ? "eu" : ""].filter(Boolean).join(" | ")).join("\n"), all: c.location_filter === "all" };
+  };
 
   return (
     <div className="mx-auto max-w-6xl px-4 pt-6">
       <div className="flex flex-wrap items-end justify-between gap-3">
         <h1 className="t-h1">Jobs admin</h1>
-        <Link href="/admin/jobs/moderation" className="min-h-11 rounded-full bg-ink px-5 py-2.5 font-medium text-paper">Moderation queue ({stats.pending + stats.open_reports})</Link>
+        <div className="flex flex-wrap gap-2">
+          <Link href="/admin/subscribers" className="min-h-11 rounded-full border border-line-strong px-5 py-2.5 font-medium">Subscribers</Link>
+          <Link href="/admin/jobs/government" className="min-h-11 rounded-full border border-line-strong px-5 py-2.5 font-medium">Government notifications</Link>
+          <Link href="/admin/jobs/affiliates" className="min-h-11 rounded-full border border-line-strong px-5 py-2.5 font-medium">Affiliate partners</Link>
+          <Link href="/admin/jobs/moderation" className="min-h-11 rounded-full bg-ink px-5 py-2.5 font-medium text-paper">Moderation queue ({stats.pending + stats.open_reports})</Link>
+        </div>
       </div>
 
       <section className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5" aria-label="Totals">
@@ -92,6 +104,19 @@ export default async function AdminJobsPage() {
             )))}
           </ul>
         </details>
+      </section>
+
+      <section className="mt-10">
+        <h2 className="t-h2">Company boards (direct employer jobs)</h2>
+        <p className="mt-1 max-w-[75ch] t-small text-ink-soft">List the companies whose careers pages you want on Mana Kosamu, one per line as <code>board-token | Company name</code>. The token is the last part of the company&apos;s careers URL — e.g. <code>job-boards.greenhouse.io/<b>acme</b></code>, <code>jobs.lever.co/<b>acme</b></code> or <code>jobs.ashbyhq.com/<b>acme</b></code>. Each job links to the company&apos;s own page.</p>
+        <div className="mt-3 grid gap-4 lg:grid-cols-2">
+          <BoardsForm slug="greenhouse" name="Greenhouse" lines={ats("greenhouse").lines} allLocations={ats("greenhouse").all} disabled={DEMO_MODE}
+            example={"acme | Acme Software\nexampleco | Example Co"} help="Uses boards-api.greenhouse.io (public, no key)." />
+          <BoardsForm slug="lever" name="Lever" lines={ats("lever").lines} allLocations={ats("lever").all} disabled={DEMO_MODE}
+            example={"acme | Acme Software\neuropeco | Europe Co | eu"} help="Uses api.lever.co (public, no key). Add “| eu” for companies on Lever’s EU site (jobs.eu.lever.co)." />
+          <BoardsForm slug="ashby" name="Ashby" lines={ats("ashby").lines} allLocations={ats("ashby").all} disabled={DEMO_MODE}
+            example={"acme | Acme AI\nexampleco | Example Co"} help="Uses api.ashbyhq.com (public, no key). Many AI and startup companies hire through Ashby." />
+        </div>
       </section>
 
       <section className="mt-10 grid gap-6 lg:grid-cols-2">

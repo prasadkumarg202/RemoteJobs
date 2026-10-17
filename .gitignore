@@ -3,4 +3,9 @@ node_modules
 .env
 .env.local
 *.tsbuildinfo
-out
+/out
+aapstack-deploy.log
+aapstack-smoke.log
+.open-next
+.wrangler
+.dev.vars

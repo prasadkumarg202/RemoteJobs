@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { SITE_URL } from "@/lib/env";
+import { DEMO_MODE, SITE_URL } from "@/lib/env";
 import { searchJobs } from "@/lib/jobs/data";
 import { MIN_JOBS_TO_INDEX, PRESETS, TOPICS } from "@/lib/jobs/pages";
 import { resolveFilters } from "@/components/SectionPage";
@@ -9,6 +9,10 @@ export const revalidate = 3600;
 // Landing pages with enough live jobs. Aggregated job pages are noindex, so they're not listed;
 // only jobs published directly on Mana Kosamu would be (served via their own pages).
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  // Subscription mode: job pages need sign-in, so only public pages are listed.
+  if (!DEMO_MODE && (process.env.ACCESS_MODE ?? "subscription") !== "open") {
+    return ["", "/refunds", "/contact", "/terms", "/privacy"].map((p) => ({ url: `${SITE_URL}${p || "/"}`, changeFrequency: "weekly", priority: p ? 0.3 : 1 }));
+  }
   const entries: MetadataRoute.Sitemap = [{ url: `${SITE_URL}/jobs`, changeFrequency: "hourly", priority: 1 }];
   for (const p of Object.values(PRESETS)) {
     const { total } = await searchJobs({ ...resolveFilters(p, {}), limit: 1 });

@@ -1,5 +1,6 @@
 import "server-only";
 import { createServerClient } from "@supabase/ssr";
+import { compatFetch } from "@engine/compat-fetch.ts";
 import { cookies } from "next/headers";
 import { DEMO_MODE, SUPABASE_ANON_KEY, SUPABASE_URL } from "@/lib/env";
 
@@ -8,6 +9,7 @@ export async function supabaseServer() {
   if (DEMO_MODE) return null;
   const store = await cookies();
   return createServerClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
+    global: { fetch: compatFetch },
     cookies: {
       getAll: () => store.getAll(),
       setAll: (list) => {

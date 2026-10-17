@@ -23,5 +23,5 @@
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules", "supabase/functions/sync-*", "supabase/functions/expire-jobs", "supabase/functions/_shared/serve-sync.ts", "supabase/functions/_shared/supabase-admin.ts"]
+  "exclude": ["node_modules", ".open-next", "supabase/functions/sync-*", "supabase/functions/expire-jobs", "supabase/functions/embed-jobs", "supabase/functions/_shared/serve-sync.ts", "supabase/functions/_shared/supabase-admin.ts"]
 }

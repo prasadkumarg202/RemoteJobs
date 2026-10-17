@@ -11,6 +11,7 @@ export function IndiaToggle({ defaultMode = "any" }: { defaultMode?: string }) {
   const sp = useSearchParams();
   const current = sp.get("india") ?? defaultMode;
   const options = [
+    { v: "eligible", label: t.indiaAll },
     { v: "india_only", label: t.indiaOnly },
     { v: "india_apac", label: t.indiaApac },
     { v: "worldwide", label: t.worldwide },
@@ -27,10 +28,10 @@ export function IndiaToggle({ defaultMode = "any" }: { defaultMode?: string }) {
     <fieldset className="rounded-2xl border border-line bg-surface p-3">
       <legend className="sr-only">{t.indiaFilterTitle}</legend>
       <p className="mb-2 flex items-center gap-2 t-small font-semibold" aria-hidden><span>🇮🇳</span>{t.indiaFilterTitle}</p>
-      <div className="grid grid-cols-2 gap-1.5 sm:grid-cols-4">
+      <div className="grid grid-cols-2 gap-1.5 sm:grid-cols-5">
         {options.map((o) => (
           <button key={o.v} type="button" onClick={() => set(o.v)} aria-pressed={current === o.v}
-            className={`min-h-11 rounded-xl px-3 t-small font-medium ${current === o.v ? "bg-leaf text-white" : "bg-paper text-ink-soft hover:text-ink"}`}>
+            className={`min-h-11 rounded-xl px-3 t-small font-medium ${o.v === "eligible" ? "col-span-2 sm:col-span-1" : ""} ${current === o.v ? "bg-leaf text-white" : "bg-paper text-ink-soft hover:text-ink"}`}>
             {o.label}
           </button>
         ))}

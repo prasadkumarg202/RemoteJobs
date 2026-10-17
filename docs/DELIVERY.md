@@ -314,3 +314,27 @@ Deterministic signals as specified:
    - Update the exchange rates in admin. The seed values are approximate placeholders.
    - Re-confirm the source terms (SOURCES.md).
    - Decide on Startup Jobs.
+
+## Update 14 Oct 2026 — affiliate partners
+
+- Migration `20261014000002_affiliate_partners.sql`: `affiliate_partners` table (links + on/off, RLS: public sees only enabled rows with a link, admins edit), `affiliate_click` event type, `admin_affiliate_clicks()` RPC.
+- `lib/affiliates/catalog.ts` (12 partners, EN/TE copy), `lib/affiliates/data.ts`, `components/AffiliateSlot.tsx`, `/out/[slug]` redirect, `/admin/jobs/affiliates`.
+- Slots on Remote, AI, Freelance, Work From Home, job detail sidebar and Post-a-job. Hidden until a link is saved. See `docs/AFFILIATES.md`.
+- Tests: `tests/affiliates.test.ts` + integration test for RLS, event constraint and click stats — 96/96 passing.
+
+## Update 14 Oct 2026 — company boards, government form, districts
+
+- **Greenhouse + Lever** (`adapters/ats.ts`, `sync-greenhouse`, `sync-lever`, migration `20261014000004_employer_ats_sources.sql`, cron twice a day). Admin lists company boards in `/admin/jobs → Company boards`. India/remote filter by default; jobs removed from a board are closed (not when a board failed).
+- **Government notifications** at `/admin/jobs/government` (`lib/jobs/government.ts`): APPSC, TGPSC, UPSC, SSC, IBPS, RRB, AP/TG police boards or any department. Official-domain check (`.gov.in`, `.nic.in`, the body's own domain); state, optional district, last date (job expires end of that day IST), fee, age, vacancies, notification link. Cards show "Last date". Government jobs never appear under Local.
+- **Districts**: all 28 AP districts (incl. Markapuram, Polavaram from 31 Dec 2025) and 33 Telangana districts with Telugu names (`engine/districts.ts`). `jobs.district` filled by the pipeline from city/location (neighbourhoods like Gachibowli → Ranga Reddy), backfilled by migration `20261014000003_districts.sql`. New `state` and `district` filters on Local and Government pages, `p_state`/`p_district` in `search_jobs`, district picker on Post a job. Searching "accountant fresher jobs in Guntur" applies the district and Fresher filters.
+- "Entry level" renamed **"Fresher / Entry level"** (Telugu too).
+- Tests: `tests/ats-gov-district.test.ts` + integration tests — 124/124 passing.
+
+## Update 15 Oct 2026 — subscription app
+
+- Migration `20261015000001_subscriptions_devices.sql`: `app_settings`, `subscription_plans` (₹49 / ₹129 / ₹399 placeholders), `subscriptions`, `subscription_events`, `user_devices`; `has_job_access()` guards job rows, source links and AI summaries (RLS); `access_status`, `bind_device` (+ one free trial), `move_device` (cooldown); alerts only for users with access.
+- Mobile-only OTP sign-in with WebOTP auto-fill/auto-submit (`components/LoginForm.tsx`); device binding (`app/device`, `lib/access/core.ts`); middleware gate with a signed 10-minute access cookie.
+- Razorpay Subscriptions: `/subscribe`, checkout verification, cancel auto-renewal, webhook `/api/razorpay/webhook`.
+- Public landing page `/`, `/refunds`, `/contact`, footer; sitemap lists only public pages in subscription mode.
+- `/admin/subscribers`: access mode, trial, cooldown, plans, reset device, grant days.
+- Tests: `tests/access.test.ts` + integration test of RLS, device binding, trial, cooldown and webhook — 141/141 passing. See `docs/SUBSCRIPTIONS.md`.

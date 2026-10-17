@@ -1,3 +1,4 @@
+import { DISTRICT_BY_SLUG } from "@engine/districts.ts";
 import { countryName, formatMoneyRange, regionName } from "@engine";
 import { fmt, type Dict } from "@/lib/i18n";
 import type { JobCard } from "./types";
@@ -27,7 +28,7 @@ export function indiaEligibility(j: Pick<JobCard, "india_eligibility" | "work_mo
 }
 
 /** "Remote — United States only", "Remote — Worldwide", "Hyderabad (Hybrid)". */
-export function whereLabel(j: Pick<JobCard, "work_mode" | "eligibility_type" | "eligible_countries" | "eligible_regions" | "timezone_requirements" | "city" | "state">, t: Dict): string {
+export function whereLabel(j: Pick<JobCard, "work_mode" | "eligibility_type" | "eligible_countries" | "eligible_regions" | "timezone_requirements" | "city" | "state" | "district"> & { sections?: string[] }, t: Dict): string {
   if (j.work_mode === "remote") {
     if (j.eligibility_type === "worldwide") return `${t.remote}, ${t.worldwide.toLowerCase()}`;
     const places = [...j.eligible_countries.map(countryName), ...j.eligible_regions.map(regionName)];
@@ -35,7 +36,10 @@ export function whereLabel(j: Pick<JobCard, "work_mode" | "eligibility_type" | "
     if (j.timezone_requirements.length) return `${t.remote}: ${j.timezone_requirements[0]}${j.timezone_requirements.length > 1 ? ` – ${j.timezone_requirements.at(-1)}` : ""}`;
     return t.remote;
   }
-  const place = [j.city, j.state].filter(Boolean).join(", ");
+  const dist = j.district ? DISTRICT_BY_SLUG[j.district] : null;
+  const town = j.city ?? (dist ? `${dist.name} district` : null);
+  if (j.sections?.includes("government")) return [town, j.state].filter(Boolean).join(", ") || t.allIndia;
+  const place = [town, j.state].filter(Boolean).join(", ");
   const mode = j.work_mode === "hybrid" ? "Hybrid" : "On-site";
   return place ? `${place} (${mode})` : mode;
 }

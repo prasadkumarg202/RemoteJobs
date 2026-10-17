@@ -51,7 +51,11 @@ export function JobCard({ job, t, saved = false }: { job: Job; t: Dict; saved?: 
       )}
 
       <div className="mt-3 flex flex-wrap items-center justify-between gap-2 t-tiny text-ink-faint">
-        <span>{postedAgo(job.posted_at, t)}</span>
+        <span>{postedAgo(job.posted_at, t)}{job.sections.includes("government") && job.expires_at && (
+          <b className="ml-2 rounded bg-turmeric-soft px-1.5 py-0.5 font-semibold text-turmeric-ink">
+            {t.lastDate}: {new Date(job.expires_at).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric", timeZone: "Asia/Kolkata" })}
+          </b>
+        )}</span>
         <span className="flex items-center gap-2">
           {job.risk_level === "medium" && <span className="inline-flex items-center gap-1 rounded bg-warn-soft px-1.5 py-0.5 text-warn"><IconShield className="h-3.5 w-3.5" />{t.needsVerification}</span>}
           <span>{t.source}: {job.source_name}{job.source_count > 1 ? ` +${job.source_count - 1}` : ""}</span>

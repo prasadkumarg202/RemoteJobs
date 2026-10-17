@@ -9,4 +9,6 @@ for f in supabase/migrations/*.sql; do $P -d mk -f "$f"; done
 $P -d mk -c "grant usage on schema extensions to anon, authenticated, service_role" \
   -c "grant select,insert,update,delete on all tables in schema public to anon, authenticated, service_role" \
   -c "grant usage, select on all sequences in schema public to anon, authenticated, service_role"
+# PostgREST caches the schema: tell it to reload, and give it a moment.
+$P -d mk -qc "notify pgrst, 'reload schema'" && sleep 2
 echo "database mk ready"

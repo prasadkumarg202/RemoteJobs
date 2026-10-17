@@ -3,7 +3,7 @@ import { cookies } from "next/headers";
 import { supabaseAdmin } from "@/lib/supabase/admin";
 import { supabaseServer } from "@/lib/supabase/server";
 
-export const EVENT_TYPES = ["job_view", "apply_click", "save_job", "share_job", "report_job", "search", "filter_used", "hide_job"] as const;
+export const EVENT_TYPES = ["job_view", "apply_click", "save_job", "share_job", "report_job", "search", "filter_used", "hide_job", "affiliate_click"] as const;
 export type EventType = (typeof EVENT_TYPES)[number];
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 

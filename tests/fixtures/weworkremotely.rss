@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/">
+<channel>
+<title>We Work Remotely: Remote jobs in design, programming, marketing and more</title>
+<link>https://weworkremotely.com/</link>
+<item>
+<media:content url="https://wwr-pro.s3.amazonaws.com/logos/0001/acme.png" type="image/png"/>
+<title>Acme AI: Senior LLM Engineer </title>
+<region>Anywhere in the World</region>
+<country></country>
+<state>California</state>
+<skills>Python, LLM, RAG</skills>
+<category>Back-End Programming</category>
+<type>Full-Time</type>
+<description>&lt;p&gt;Build &lt;strong&gt;LLM&lt;/strong&gt; agents and RAG pipelines with Python. Fully remote, work from anywhere.&lt;/p&gt;</description>
+<pubDate>Fri, 09 Oct 2026 00:50:53 +0000</pubDate>
+<expires_at>Sun, 08 Nov 2026 00:50:53 +0000</expires_at>
+<guid>https://weworkremotely.com/remote-jobs/acme-ai-senior-llm-engineer</guid>
+<link>https://weworkremotely.com/remote-jobs/acme-ai-senior-llm-engineer</link>
+</item>
+<item>
+<media:content url="https://wwr-pro.s3.amazonaws.com/logos/0002/globex.png" type="image/png"/>
+<title>Globex: Customer Support Specialist</title>
+<region>USA Only</region>
+<country>United States</country>
+<state>Texas</state>
+<skills></skills>
+<category>Customer Support</category>
+<type>Part-Time</type>
+<description>&lt;p&gt;Answer customer emails. Must live in the USA.&lt;/p&gt;</description>
+<pubDate>Thu, 08 Oct 2026 19:18:13 +0000</pubDate>
+<expires_at>Sat, 07 Nov 2026 19:18:13 +0000</expires_at>
+<guid>https://weworkremotely.com/remote-jobs/globex-customer-support-specialist</guid>
+<link>https://weworkremotely.com/remote-jobs/globex-customer-support-specialist</link>
+</item>
+<item>
+<title>Initech: Contract React Developer</title>
+<region>Asia Only</region>
+<country></country>
+<state></state>
+<skills>React, TypeScript</skills>
+<category>Front-End Programming</category>
+<type>Contract</type>
+<description>&lt;p&gt;Six-month React contract, Asia time zones.&lt;/p&gt;</description>
+<pubDate>Wed, 07 Oct 2026 10:00:00 +0000</pubDate>
+<expires_at>Fri, 06 Nov 2026 10:00:00 +0000</expires_at>
+<guid>https://weworkremotely.com/remote-jobs/initech-contract-react-developer</guid>
+<link>https://weworkremotely.com/remote-jobs/initech-contract-react-developer</link>
+</item>
+<item>
+<title>Old Co: Expired Role</title>
+<region>Anywhere in the World</region>
+<type>Full-Time</type>
+<description>&lt;p&gt;Closed.&lt;/p&gt;</description>
+<pubDate>Mon, 01 Sep 2026 10:00:00 +0000</pubDate>
+<expires_at>Wed, 01 Oct 2026 10:00:00 +0000</expires_at>
+<link>https://weworkremotely.com/remote-jobs/old-co-expired-role</link>
+</item>
+<item>
+<title>Spam: Not a WWR link</title>
+<link>https://example.com/job/1</link>
+</item>
+</channel>
+</rss>

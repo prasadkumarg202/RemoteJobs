@@ -6,8 +6,9 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import {
   AdzunaAdapter, ArbeitnowAdapter, employerSubmissionToRaw, FreelancerAdapter, HimalayasAdapter, JobicyAdapter, MemoryJobRepository, normalizeJob,
-  RemoteOkAdapter, RemotiveAdapter, runSync, WorkingNomadsAdapter, type FetchLike,
+  RemoteOkAdapter, RemotiveAdapter, runSync, WorkingNomadsAdapter, GreenhouseAdapter, LeverAdapter, type FetchLike,
 } from "../supabase/functions/_shared/engine/index.ts";
+import { govToRaw } from "../lib/jobs/government.ts";
 
 const fx = (n: string) => readFileSync(new URL(`../tests/fixtures/${n}`, import.meta.url), "utf8");
 const fetchImpl: FetchLike = async (input) => {
@@ -19,6 +20,8 @@ const fetchImpl: FetchLike = async (input) => {
     : u.hostname.includes("freelancer") ? fx("freelancer.json")
     : u.hostname.includes("workingnomads") ? fx("workingnomads.json")
     : u.hostname.includes("arbeitnow") ? fx("arbeitnow.json")
+    : u.hostname.includes("greenhouse") ? fx("greenhouse-acme.json")
+    : u.hostname.includes("lever") ? fx("lever-globex.json")
     : fx("remoteok.json");
   return new Response(body, { headers: { "content-type": "application/json" } });
 };
@@ -34,7 +37,10 @@ const meta = {
   freelancer: { attribution_text: "Source: Freelancer.com", allow_structured_data: false },
   workingnomads: { attribution_text: "Source: Working Nomads", allow_structured_data: false },
   arbeitnow: { attribution_text: "Source: Arbeitnow", allow_structured_data: false },
+  greenhouse: { attribution_text: "Source: company careers page (Greenhouse)", allow_structured_data: false },
+  lever: { attribution_text: "Source: company careers page (Lever)", allow_structured_data: false },
   employer: { attribution_text: "Source: Mana Kosamu Employer", allow_structured_data: true },
+  manual: { attribution_text: "Source: Mana Kosamu", allow_structured_data: false }, // demo samples are fictional: no JobPosting markup
 };
 repo.addSource({ slug: "himalayas", name: "Himalayas", api_url: "https://himalayas.app/jobs/api" });
 repo.addSource({ slug: "jobicy", name: "Jobicy", api_url: "https://jobicy.com/api/v2/remote-jobs" });
@@ -44,8 +50,10 @@ repo.addSource({ slug: "adzuna", name: "Adzuna", api_url: "https://api.adzuna.co
 repo.addSource({ slug: "freelancer", name: "Freelancer.com", base_url: "https://www.freelancer.com" });
 repo.addSource({ slug: "workingnomads", name: "Working Nomads" });
 repo.addSource({ slug: "arbeitnow", name: "Arbeitnow" });
+repo.addSource({ slug: "greenhouse", name: "Greenhouse", config: { boards: [{ token: "acme", company: "Acme Software (sample)" }] } });
+repo.addSource({ slug: "lever", name: "Lever", config: { boards: [{ token: "globex", company: "Globex (sample)" }] } });
 const secrets = { ADZUNA_APP_ID: "demo", ADZUNA_APP_KEY: "demo", FREELANCER_OAUTH_TOKEN: "demo" };
-for (const a of [new HimalayasAdapter(), new JobicyAdapter(), new RemoteOkAdapter(), new RemotiveAdapter(), new AdzunaAdapter(), new FreelancerAdapter(), new WorkingNomadsAdapter(), new ArbeitnowAdapter()]) {
+for (const a of [new HimalayasAdapter(), new JobicyAdapter(), new RemoteOkAdapter(), new RemotiveAdapter(), new AdzunaAdapter(), new FreelancerAdapter(), new WorkingNomadsAdapter(), new ArbeitnowAdapter(), new GreenhouseAdapter(), new LeverAdapter()]) {
   const r = await runSync(a, repo, { fetchImpl, now, pageDelayMs: 0, force: true, secrets });
   console.log(`${a.slug}: +${r.jobs_added} (dupes ${r.jobs_duplicates})`);
 }
@@ -63,12 +71,24 @@ for (const s of local) {
   employerJobs.push({ ...job, id: s.submissionId, is_active: true, moderation_status: "approved", is_verified: true, source_count: 1, external_url: `${site}/jobs/${job.slug}` });
 }
 
+// Sample government notifications — clearly fictional, linking to the national portal only.
+const lastDate = new Date(now.getTime() + 21 * 86400000).toISOString().slice(0, 10);
+const govSamples = [
+  { id: "demo-gov-1", orgSlug: "other", orgName: "Sample Department (demo data, not a real notification)", scope: "AP" as const, district: "guntur", postName: "Junior Assistant (sample)", vacancies: 40, qualification: "Any degree + computer proficiency", ageLimit: "18–42 years", lastDate, notificationUrl: "https://www.india.gov.in/" },
+  { id: "demo-gov-2", orgSlug: "other", orgName: "Sample Recruitment Board (demo data, not a real notification)", scope: "IN" as const, district: null, postName: "Assistant Section Officer (sample)", vacancies: 120, qualification: "Bachelor's degree", ageLimit: "20–30 years", lastDate, notificationUrl: "https://www.india.gov.in/" },
+];
+const govJobs = [];
+for (const g of govSamples) {
+  const { job } = await normalizeJob(govToRaw(g), { sourceId: "src-manual", sourceSlug: "manual", sourceName: "Mana Kosamu", rates: repo.rates, trustedSource: true, now });
+  govJobs.push({ ...job, id: g.id, risk_flags: [], risk_level: "low", is_active: true, moderation_status: "approved", is_verified: true, source_count: 1 });
+}
+
 const slugById = new Map([...repo.sources.values()].map((s) => [s.id, s.slug]));
-const jobs = [...[...repo.jobs.values()].filter((j) => j.is_active && j.moderation_status === "approved"), ...employerJobs].map((j) => {
+const jobs = [...[...repo.jobs.values()].filter((j) => j.is_active && j.moderation_status === "approved"), ...employerJobs, ...govJobs].map((j) => {
   const maps = repo.mappings.filter((m) => m.job_id === j.id);
-  const sources = (maps.length ? maps : [{ source_id: "src-employer", external_url: j.external_url, is_primary: true }]).map((m) => {
-    const slug = slugById.get(m.source_id) ?? "employer";
-    const name = slug === "employer" ? "Mana Kosamu Employer" : repo.sources.get(slug)!.name;
+  const sources = (maps.length ? maps : [{ source_id: j.source_id ?? "src-employer", external_url: j.external_url, is_primary: true }]).map((m) => {
+    const slug = slugById.get(m.source_id) ?? (m.source_id === "src-manual" ? "manual" : "employer");
+    const name = slug === "employer" ? "Mana Kosamu Employer" : slug === "manual" ? "Mana Kosamu" : repo.sources.get(slug)!.name;
     return { name, slug, external_url: m.external_url, is_primary: m.is_primary, ...meta[slug as keyof typeof meta] };
   });
   const { payload_hash: _p, normalized_title: _t, normalized_company: _c, normalized_location: _l, content_hash: _h, ...rest } = j as Record<string, unknown>;

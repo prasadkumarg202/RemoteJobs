@@ -1,6 +1,7 @@
 // URL search params ⇄ JobFilters, plus natural-language query intent parsing
 // ("python remote india", "n8n freelancer", "data entry work from home").
 
+import { DISTRICT_BY_SLUG, findDistrict, stateNameFromCode } from "@engine/districts.ts";
 import type { IndiaMode, JobFilters, JobSection, SortMode } from "./types";
 
 type Params = Record<string, string | string[] | undefined>;
@@ -15,6 +16,20 @@ const int = (v: string | string[] | undefined) => {
 
 const INDIA_MODES: IndiaMode[] = ["india_only", "india_apac", "worldwide", "eligible", "any"];
 const SORTS: SortMode[] = ["relevance", "newest", "salary"];
+
+function districtParam(v: string | undefined): string | undefined {
+  const s = v?.toLowerCase();
+  return s && DISTRICT_BY_SLUG[s] ? s : undefined;
+}
+
+/** URL `state=ap|ts|all` → value stored in jobs.state ("all" = national notifications with no state). */
+function stateParam(v: string | undefined): string | undefined {
+  if (!v) return undefined;
+  if (v.toLowerCase() === "all") return "all_india";
+  return stateNameFromCode(v) ?? undefined;
+}
+
+export const STATE_PARAM: Record<string, string> = { ap: "Andhra Pradesh", ts: "Telangana", all: "all_india" };
 
 export function filtersFromParams(p: Params): JobFilters {
   const india = one(p.india) as IndiaMode | undefined;
@@ -36,13 +51,15 @@ export function filtersFromParams(p: Params): JobFilters {
     postedWithin: int(p.posted),
     sources: list(p.source),
     city: one(p.city),
+    district: districtParam(one(p.district)),
+    state: stateParam(one(p.state)),
     sort: sort && SORTS.includes(sort) ? sort : undefined,
     page: int(p.page) ?? 1,
   };
 }
 
 /** Keys the filter UI owns, so "clear all" can drop them while keeping the page context. */
-export const FILTER_KEYS = ["india", "country", "region", "cat", "ai", "type", "mode", "level", "salary", "budget", "dur", "posted", "source", "city", "sort"];
+export const FILTER_KEYS = ["india", "country", "region", "cat", "ai", "type", "mode", "level", "salary", "budget", "dur", "posted", "source", "city", "state", "district", "sort"];
 
 export function countActiveFilters(p: Params): number {
   return FILTER_KEYS.filter((k) => k !== "sort" && one(p[k])).length;
@@ -53,12 +70,14 @@ export interface QueryIntent {
   sections: JobSection[];
   india?: IndiaMode;
   types: string[];
+  seniority: string[];
+  district?: string;
 }
 
 const STOP = /\b(jobs?|vacanc(?:y|ies)|openings?|hiring|positions?|roles?|careers?|work|online|for|in|the|a|an|with|near me|latest|new)\b/gi;
 
 export function parseQueryIntent(raw: string | undefined): QueryIntent {
-  const intent: QueryIntent = { text: "", sections: [], types: [] };
+  const intent: QueryIntent = { text: "", sections: [], types: [], seniority: [] };
   if (!raw) return intent;
   let q = ` ${raw.toLowerCase()} `;
   const take = (re: RegExp, fn: () => void) => {
@@ -70,10 +89,19 @@ export function parseQueryIntent(raw: string | undefined): QueryIntent {
   take(/\b(government|govt|sarkari)\b/g, () => intent.sections.push("government"));
   take(/\b(part[- ]?time)\b/g, () => intent.types.push("part_time"));
   take(/\b(internships?|interns?)\b/g, () => intent.types.push("internship"));
+  take(/\b(freshers?|entry[- ]level|no experience|0 experience)\b/g, () => intent.seniority.push("entry"));
   if (/\bindia(?:n)?\b/.test(q)) {
     q = q.replace(/\bindia(?:n)?\b/g, " ");
     intent.india = "eligible";
     if (!intent.sections.includes("remote") && !intent.sections.includes("wfh")) intent.sections.push("remote");
+  }
+  // "accountant jobs in guntur" → district filter (only for AP/TS place names, not words like "krishna").
+  const district = findDistrict(q);
+  if (district) {
+    intent.district = district;
+    const d = DISTRICT_BY_SLUG[district];
+    for (const w of [...(d.localities ?? []), ...d.aliases]) q = q.replace(new RegExp(`(?<![a-z])${w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}(?![a-z])`, "gi"), " ");
+    q = q.replace(/\b(district|dist)\b/g, " ");
   }
   q = q.replace(STOP, " ").replace(/\s+/g, " ").trim();
   // A bare "ai" is a section, not a keyword ("AI jobs remote"); "AI automation" stays as text.
@@ -91,6 +119,8 @@ export function applyIntent(f: JobFilters, intent: QueryIntent): JobFilters {
     sections: sections.length ? sections : undefined,
     india: f.india ?? intent.india,
     types: f.types?.length ? f.types : intent.types.length ? intent.types : undefined,
+    seniority: f.seniority?.length ? f.seniority : intent.seniority.length ? intent.seniority : undefined,
+    district: f.district ?? intent.district,
   };
 }
 

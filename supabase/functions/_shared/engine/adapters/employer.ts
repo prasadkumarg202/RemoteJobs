@@ -18,6 +18,7 @@ export interface EmployerSubmission {
   city?: string | null;
   state?: string | null;
   country?: string | null;
+  district?: string | null;
   workMode: WorkMode;
   employmentType: EmploymentType;
   skills?: string[];
@@ -43,6 +44,7 @@ export function employerSubmissionToRaw(s: EmployerSubmission, siteUrl: string):
     city: s.city ?? null,
     state: s.state ?? null,
     country: s.country ?? "India",
+    district: s.district ?? null,
     workModeHint: s.workMode,
     salaryMin: s.salaryMin ?? null,
     salaryMax: s.salaryMax ?? null,

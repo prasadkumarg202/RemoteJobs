@@ -18,6 +18,8 @@ export interface JobCard {
   work_mode: WorkMode;
   country: string | null;
   city: string | null;
+  /** AP/Telangana district slug. */
+  district?: string | null;
   state: string | null;
   location_text: string | null;
   eligibility_type: EligibilityType;
@@ -102,6 +104,10 @@ export interface JobFilters {
   postedWithin?: number;
   sources?: string[];
   city?: string;
+  /** AP/Telangana district slug. */
+  district?: string;
+  /** "Andhra Pradesh" | "Telangana" | "all_india" (national notifications with no state). */
+  state?: string;
   excludeIds?: string[];
   sort?: SortMode;
   page?: number;

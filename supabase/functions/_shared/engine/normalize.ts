@@ -1,5 +1,6 @@
 // RawJob → NormalizedJob: parse, normalize, classify, score, hash.
 
+import { DISTRICT_BY_SLUG, findDistrict, STATE_NAMES } from "./districts.ts";
 import { classifyCategories, classifyDuration, classifyEmploymentType, classifySeniority, scoreAi } from "./classify.ts";
 import { resolveEligibility } from "./eligibility.ts";
 import { assessRisk } from "./risk.ts";
@@ -33,7 +34,7 @@ export function computeSections(j: Pick<NormalizedJob, "work_mode" | "ai_score" 
   // Work From Home: remote work an India-based person can actually take, that suits flexible/non-specialist profiles.
   const flexible = ["part_time", "freelance", "gig", "internship"].includes(j.employment_type);
   if (remote && indiaOk && (flexible || j.category === "business" || j.category === "creative")) s.push("wfh");
-  if (!remote && (j.work_mode === "onsite" || j.work_mode === "hybrid") && j.city) s.push("local");
+  if (!remote && !j.is_government && (j.work_mode === "onsite" || j.work_mode === "hybrid") && j.city) s.push("local");
   if (j.is_government) s.push("government");
   return s;
 }
@@ -64,6 +65,18 @@ export async function normalizeJob(raw: RawJob, ctx: NormalizeContext): Promise<
     title, description, locationRaw: raw.locationRaw, countriesRaw: raw.countriesRaw, timezonesRaw: raw.timezonesRaw,
     workModeHint: raw.workModeHint, city: raw.city, state: raw.state, country: raw.country,
   });
+
+  // AP / Telangana district (for the district filter). Remote jobs don't get one.
+  const inIndia = !elig.country || elig.country === "IN";
+  const district = raw.district && DISTRICT_BY_SLUG[raw.district]
+    ? raw.district
+    : inIndia && elig.work_mode !== "remote" ? findDistrict([raw.city, elig.city, raw.locationRaw].filter(Boolean).join(", ")) : null;
+  if (district) {
+    const dd = DISTRICT_BY_SLUG[district];
+    elig.state = elig.state ?? STATE_NAMES[dd.state].name;
+    elig.country = elig.country ?? "IN";
+    if (!elig.city && !raw.isGovernment) elig.city = dd.hq;
+  }
 
   const budget = deriveBudget(sal, employment_type);
   const salary_inr_min = toInr(sal.min, sal.currency, ctx.rates);
@@ -125,6 +138,7 @@ export async function normalizeJob(raw: RawJob, ctx: NormalizeContext): Promise<
     country: elig.country,
     state: elig.state,
     city: elig.city,
+    district,
     region: elig.region,
     location_text: elig.location_text,
     remote_allowed: elig.remote_allowed,

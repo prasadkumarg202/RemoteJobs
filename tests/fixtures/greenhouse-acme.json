@@ -1,0 +1,6 @@
+{"jobs":[
+ {"id":4001,"title":"Senior Machine Learning Engineer","absolute_url":"https://job-boards.greenhouse.io/acme/jobs/4001","updated_at":"2026-10-12T09:00:00-04:00","location":{"name":"Hyderabad, India"},"content":"&lt;p&gt;Build &lt;strong&gt;LLM&lt;/strong&gt; ranking models with PyTorch and RAG pipelines. 5+ years of Python and deep learning. Hybrid work from our Gachibowli office.&lt;/p&gt;","departments":[{"name":"Engineering"}],"offices":[{"name":"Hyderabad"}]},
+ {"id":4002,"title":"Customer Success Manager","absolute_url":"https://job-boards.greenhouse.io/acme/jobs/4002","updated_at":"2026-10-11T09:00:00-04:00","location":{"name":"Remote - India"},"content":"&lt;p&gt;Own onboarding for SMB customers across India. Fluent English and Telugu or Hindi.&lt;/p&gt;","departments":[{"name":"Customer Success"}],"offices":[]},
+ {"id":4003,"title":"Account Executive","absolute_url":"https://job-boards.greenhouse.io/acme/jobs/4003","updated_at":"2026-10-10T09:00:00-04:00","location":{"name":"New York, NY"},"content":"&lt;p&gt;Close mid-market deals in the NYC area. On-site 4 days a week.&lt;/p&gt;","departments":[{"name":"Sales"}],"offices":[{"name":"New York"}]},
+ {"id":4004,"title":"","absolute_url":"https://job-boards.greenhouse.io/acme/jobs/4004","updated_at":"2026-10-10T09:00:00-04:00","location":{"name":"Remote"}}
+]}

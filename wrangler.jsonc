@@ -14,7 +14,9 @@
   // Plain-text, non-secret settings. Keys, tokens and secrets are set in the Cloudflare
   // dashboard (Worker → Settings → Variables and Secrets), never in this file.
   "vars": {
-    "ACCESS_MODE": "subscription"
+    "ACCESS_MODE": "subscription",
+    // Testing phase: allow email + password sign-in alongside mobile OTP.
+    "EMAIL_LOGIN": "on"
   },
   // Keep variables added in the dashboard when this file is deployed.
   "keep_vars": true
